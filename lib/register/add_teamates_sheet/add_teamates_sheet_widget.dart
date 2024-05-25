@@ -232,6 +232,7 @@ class _AddTeamatesSheetWidgetState extends State<AddTeamatesSheetWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily),
                                     ),
+                                textAlign: TextAlign.start,
                                 validator: _model
                                     .fullNameTextControllerValidator
                                     .asValidator(context),
@@ -574,6 +575,7 @@ class _AddTeamatesSheetWidgetState extends State<AddTeamatesSheetWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily),
                                       ),
+                                  textAlign: TextAlign.start,
                                   keyboardType: TextInputType.number,
                                   validator: _model.phoneTextControllerValidator
                                       .asValidator(context),

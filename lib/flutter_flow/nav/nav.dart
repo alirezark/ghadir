@@ -135,11 +135,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TeamatesWidget(),
         ),
         FFRoute(
-          name: 'list',
-          path: '/list',
-          builder: (context, params) => const ListWidget(),
-        ),
-        FFRoute(
           name: 'addressForm',
           path: '/addressForm',
           requireAuth: true,

@@ -35,13 +35,14 @@ class _PlacePickerState extends State<PlacePicker> {
   Widget build(BuildContext context) {
     return Container(
       child: FlutterLocationPicker(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          initPosition: LatLong(35.699798, 51.340550),
           selectLocationButtonText: 'انتخاب',
           mapLanguage: 'fa',
           searchBarBackgroundColor: Colors.white,
           initZoom: 11,
           minZoomLevel: 5,
           maxZoomLevel: 16,
-          trackMyPosition: true,
           onPicked: (pickedData) {
             widget.onLocationSelect(pickedData.address,
                 pickedData.latLong.latitude, pickedData.latLong.longitude);

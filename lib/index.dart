@@ -11,5 +11,4 @@ export '/template/create05_patient_intake/create05_patient_intake_widget.dart'
     show Create05PatientIntakeWidget;
 export '/register/register/register_widget.dart' show RegisterWidget;
 export '/register/teamates/teamates_widget.dart' show TeamatesWidget;
-export '/list/list_widget.dart' show ListWidget;
 export '/register/address_form/address_form_widget.dart' show AddressFormWidget;
