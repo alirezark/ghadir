@@ -18,6 +18,7 @@ ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # Enable flutter web
 #RUN flutter channel stable && flutter upgrade
+
 RUN flutter config --enable-web
 
 # Set the working directory
