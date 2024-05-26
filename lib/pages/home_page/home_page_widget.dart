@@ -189,6 +189,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .titleLargeFamily,
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
