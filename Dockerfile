@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Run Flutter build command
-RUN flutter build web
+#RUN flutter build web
 
 # Stage 2: Serve the built app with Nginx
 FROM nginx:alpine
