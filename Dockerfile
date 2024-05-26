@@ -1,5 +1,5 @@
-# Start with a base image that has the necessary dependencies
-FROM nginx:alpine
+# Stage 1: Build the Flutter web app
+FROM google/flutter AS build
 
 # Set the working directory
 WORKDIR /app
@@ -7,10 +7,14 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Use the Nginx image to serve the built Flutter web app
+# Run Flutter build command
+RUN flutter build web
 
-# Copy the build output to Nginx's HTML directory
-COPY --from=0 /app/build/web /usr/share/nginx/html
+# Stage 2: Serve the built app with Nginx
+FROM nginx:alpine
+
+# Copy the build output from the previous stage to Nginx's HTML directory
+COPY --from=build /app/build/web /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
