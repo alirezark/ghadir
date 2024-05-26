@@ -1,5 +1,24 @@
-# Use an official Dart image as a parent image
-FROM cirrusci/flutter:3.7.4
+# Start with a base image that has the necessary dependencies
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    unzip \
+    xz-utils \
+    libglu1-mesa \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Flutter
+RUN git clone https://github.com/flutter/flutter.git /flutter
+
+# Set Flutter path
+ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+# Enable flutter web
+RUN flutter channel stable && flutter upgrade
+RUN flutter config --enable-web
 
 # Set the working directory
 WORKDIR /app
