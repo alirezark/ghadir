@@ -1,5 +1,5 @@
 # Stage 1: Build the Flutter web app
-FROM google/flutter AS build
+# FROM google/flutter AS build
 
 # Set the working directory
 WORKDIR /app
