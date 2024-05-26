@@ -1,5 +1,5 @@
 # Use an official Dart image as a parent image
-FROM cirrusci/flutter:latest
+FROM cirrusci/flutter:3.0.0
 
 # Set the working directory
 WORKDIR /app
