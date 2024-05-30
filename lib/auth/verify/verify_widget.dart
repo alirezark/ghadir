@@ -6,9 +6,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +52,9 @@ class _VerifyWidgetState extends State<VerifyWidget> {
         startImmediately: true,
       );
     });
+
+    _model.codeTextController ??= TextEditingController();
+    _model.codeFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -258,63 +261,115 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                               ),
                               Container(
                                 decoration: const BoxDecoration(),
-                                child: PinCodeTextField(
-                                  autoDisposeControllers: false,
-                                  appContext: context,
-                                  length: 4,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyLargeFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLargeFamily),
+                                child: Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: SizedBox(
+                                      width: 370.0,
+                                      child: TextFormField(
+                                        controller: _model.codeTextController,
+                                        focusNode: _model.codeFocusNode,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'کد تایید',
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily),
+                                              ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          contentPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                        textAlign: TextAlign.center,
+                                        maxLength: 4,
+                                        maxLengthEnforcement:
+                                            MaxLengthEnforcement.enforced,
+                                        buildCounter: (context,
+                                                {required currentLength,
+                                                required isFocused,
+                                                maxLength}) =>
+                                            null,
+                                        keyboardType: TextInputType.number,
+                                        validator: _model
+                                            .codeTextControllerValidator
+                                            .asValidator(context),
+                                        inputFormatters: [_model.codeMask],
                                       ),
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  enableActiveFill: false,
-                                  autoFocus: true,
-                                  enablePinAutofill: false,
-                                  errorTextSpace: 16.0,
-                                  showCursor: true,
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  obscureText: false,
-                                  keyboardType: TextInputType.number,
-                                  pinTheme: PinTheme(
-                                    fieldHeight: 44.0,
-                                    fieldWidth: 44.0,
-                                    borderWidth: 2.0,
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(12.0),
-                                      bottomRight: Radius.circular(12.0),
-                                      topLeft: Radius.circular(12.0),
-                                      topRight: Radius.circular(12.0),
                                     ),
-                                    shape: PinCodeFieldShape.box,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    inactiveColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    selectedColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeFillColor:
-                                        FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                    inactiveFillColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    selectedFillColor:
-                                        FlutterFlowTheme.of(context).primary,
                                   ),
-                                  controller: _model.code,
-                                  onChanged: (_) {},
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  validator:
-                                      _model.codeValidator.asValidator(context),
                                 ),
                               ),
                               Padding(
@@ -324,7 +379,7 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                   onPressed: () async {
                                     _model.loginResult =
                                         await AuthGroup.loginCall.call(
-                                      password: _model.code!.text,
+                                      password: _model.codeTextController.text,
                                       mobile: widget.phone,
                                     );
                                     if ((_model.loginResult?.succeeded ??
