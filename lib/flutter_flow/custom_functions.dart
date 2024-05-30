@@ -15,3 +15,9 @@ import '/auth/custom_auth/auth_util.dart';
 String relationToText(Relation? relation) {
   return relation == Relation.colleague ? "همکار" : "خانواده";
 }
+
+String toTimeString(int time) {
+  num minutes = (time / 60).floor();
+  num seconds = time % 60;
+  return ' $minutes:${seconds.toString().padLeft(2, '0')} ';
+}

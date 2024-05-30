@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -15,12 +17,27 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      if (prefs.containsKey('ff_profile')) {
+        try {
+          final serializedData = prefs.getString('ff_profile') ?? '{}';
+          _profile =
+              ProfileStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   ParticipantType? _participantType = ParticipantType.family;
   ParticipantType? get participantType => _participantType;
@@ -71,9 +88,29 @@ class FFAppState extends ChangeNotifier {
   ProfileStruct get profile => _profile;
   set profile(ProfileStruct value) {
     _profile = value;
+    prefs.setString('ff_profile', value.serialize());
   }
 
   void updateProfileStruct(Function(ProfileStruct) updateFn) {
     updateFn(_profile);
+    prefs.setString('ff_profile', _profile.serialize());
   }
+
+  int _pinCodeCountDown = 20;
+  int get pinCodeCountDown => _pinCodeCountDown;
+  set pinCodeCountDown(int value) {
+    _pinCodeCountDown = value;
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

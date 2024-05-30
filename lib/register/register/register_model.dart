@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/register_header/register_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_widget.dart' show RegisterWidget;
@@ -9,6 +10,8 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  // Model for RegisterHeader component.
+  late RegisterHeaderModel registerHeaderModel;
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
   TextEditingController? firstNameTextController;
@@ -57,6 +60,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
   @override
   void initState(BuildContext context) {
+    registerHeaderModel = createModel(context, () => RegisterHeaderModel());
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     biteCountTextControllerValidator = _biteCountTextControllerValidator;
@@ -65,6 +69,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    registerHeaderModel.dispose();
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 
