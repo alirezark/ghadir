@@ -14,7 +14,7 @@ class AuthGroup {
   static String getBaseUrl({
     String? mobile = '',
   }) =>
-      'https://ghadir-api.pish.run/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {};
   static OtpCall otpCall = OtpCall();
   static LoginCall loginCall = LoginCall();
@@ -88,7 +88,7 @@ class ProfileGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.pish.run/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -208,7 +208,7 @@ class BiteGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.pish.run/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -250,7 +250,7 @@ class TeamateGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.pish.run/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
