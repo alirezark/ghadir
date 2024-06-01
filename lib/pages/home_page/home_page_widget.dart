@@ -33,6 +33,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResult6i8 = await ConfigGroup.getConfigCall.call();
+      if ((_model.apiResult6i8?.succeeded ?? true)) {
+        FFAppState().config =
+            ConfigStruct.maybeFromMap((_model.apiResult6i8?.jsonBody ?? ''))!;
+        setState(() {});
+      }
       _model.instantTimer = InstantTimer.periodic(
         duration: const Duration(milliseconds: 5000),
         callback: (timer) async {
@@ -40,10 +46,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             jwt: currentAuthenticationToken,
           );
           if ((_model.apiResultmvz?.succeeded ?? true)) {
-            setState(() {
-              FFAppState().profile = ProfileStruct.maybeFromMap(
-                  (_model.apiResultmvz?.jsonBody ?? ''))!;
-            });
+            FFAppState().profile = ProfileStruct.maybeFromMap(
+                (_model.apiResultmvz?.jsonBody ?? ''))!;
+            setState(() {});
             await action_blocks.handleUserState(context);
             _model.instantTimer?.cancel();
           } else if ((_model.apiResultmvz?.statusCode ?? 200) == 404) {
@@ -139,7 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/128-ts-reportage-273003-1.jpg',
+                                          'assets/images/Site-2.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
@@ -151,7 +156,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/60fd494ef2759.jpg',
+                                          'assets/images/Billboard_02.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
@@ -163,7 +168,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/62309259.jpg',
+                                          'assets/images/_1_.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
@@ -175,7 +180,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/60fd494ef2759.jpg',
+                                          'assets/images/Billboard_02.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
@@ -216,7 +221,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/128-ts-reportage-273003-1.jpg',
+                                      'assets/images/-9223372036854775808_-210448.jpg',
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),
@@ -224,7 +229,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/60fd494ef2759.jpg',
+                                      'assets/images/996810499_1115945908.jpg',
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),
@@ -232,7 +237,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/62309259.jpg',
+                                      'assets/images/Billboard_02.jpg',
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),
@@ -240,7 +245,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/128-ts-reportage-273003-1.jpg',
+                                      'assets/images/Site-2.jpg',
                                       width: 300.0,
                                       height: 200.0,
                                       fit: BoxFit.cover,
@@ -299,77 +304,319 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             if (FFAppState().profile.firstName != '')
                               Flexible(
                                 child: Container(
-                                  height: 400.0,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.6,
+                                  constraints: const BoxConstraints(
+                                    minHeight: 450.0,
+                                  ),
                                   decoration: const BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
-                                        child: Text(
-                                          'سامانه مردمی غدیر',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(FlutterFlowTheme
-                                                            .of(context)
-                                                        .headlineSmallFamily),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 16.0, 0.0, 16.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/654323223.png',
+                                                width: 300.0,
+                                                height: 80.0,
+                                                fit: BoxFit.fitHeight,
                                               ),
-                                        ),
-                                      ),
-                                      Text(
-                                        '${FFAppState().profile.firstName} ${FFAppState().profile.lastName} عزیز، به سامانه مردمی غدیر خوش آمدید',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily),
                                             ),
-                                      ),
-                                      Container(
-                                        constraints: const BoxConstraints(
-                                          maxWidth: 250.0,
-                                        ),
-                                        decoration: const BoxDecoration(),
-                                        child: Text(
-                                          'از تاریخ فلان، از طریق این سامانه می توانید خیلی کارها بکنید',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'اجرتون با مولا',
+                                                textAlign: TextAlign.end,
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLargeFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily),
+                                                        ),
                                               ),
+                                            ),
+                                            Text(
+                                              '${FFAppState().profile.firstName} ${FFAppState().profile.lastName} عزیز، تعداد ${FFAppState().profile.biteCount} لقمه ${FFAppState().profile.biteName} برای شما ثبت گردید',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
+                                                      ),
+                                            ),
+                                            Text(
+                                              FFAppState()
+                                                  .config
+                                                  .homeCreatorMsgStep0,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                            Text(
+                                              'جهت دعوت دیگران به لقمه میلیونی می توانید محتواهای زیر را به اشتراک بگذارید',
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                          ].divide(const SizedBox(height: 16.0)),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(height: 16.0)),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Expanded(
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await launchURL(
+                                                          FFAppState()
+                                                              .config
+                                                              .homeSharePic1);
+                                                    },
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      height: 100.0,
+                                                      constraints:
+                                                          const BoxConstraints(
+                                                        maxWidth: 120.0,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFEEEEEE),
+                                                        boxShadow: const [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x33000000),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              2.0,
+                                                            ),
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(4.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .image_outlined,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .info,
+                                                              size: 44.0,
+                                                            ),
+                                                            Text(
+                                                              'دریافت استوری',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                            ),
+                                                          ].divide(const SizedBox(
+                                                              height: 8.0)),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await launchURL(
+                                                          FFAppState()
+                                                              .config
+                                                              .homeSharePic2);
+                                                    },
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      height: 100.0,
+                                                      constraints:
+                                                          const BoxConstraints(
+                                                        minWidth: 120.0,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFEEEEEE),
+                                                        boxShadow: const [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x33000000),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              2.0,
+                                                            ),
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(4.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .image_outlined,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .info,
+                                                              size: 44.0,
+                                                            ),
+                                                            Text(
+                                                              'دریافت پست\n',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                            ),
+                                                          ].divide(const SizedBox(
+                                                              height: 8.0)),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ].divide(const SizedBox(width: 16.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(height: 16.0)),
+                                    ),
                                   ),
                                 ),
                               ),

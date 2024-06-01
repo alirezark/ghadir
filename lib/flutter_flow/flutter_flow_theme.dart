@@ -183,107 +183,107 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Vazirmatn';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayLargeFamily => 'iransans';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Vazirmatn';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayMediumFamily => 'iransans';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Vazirmatn';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displaySmallFamily => 'iransans';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Vazirmatn';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineLargeFamily => 'iransans';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Vazirmatn';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineMediumFamily => 'iransans';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Vazirmatn';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineSmallFamily => 'iransans';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Vazirmatn';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleLargeFamily => 'iransans';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Vazirmatn';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleMediumFamily => 'iransans';
+  TextStyle get titleMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Vazirmatn';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleSmallFamily => 'iransans';
+  TextStyle get titleSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Vazirmatn';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelLargeFamily => 'iransans';
+  TextStyle get labelLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Vazirmatn';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelMediumFamily => 'iransans';
+  TextStyle get labelMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Vazirmatn';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelSmallFamily => 'iransans';
+  TextStyle get labelSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Vazirmatn';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyLargeFamily => 'iransans';
+  TextStyle get bodyLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Vazirmatn';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyMediumFamily => 'iransans';
+  TextStyle get bodyMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Vazirmatn';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodySmallFamily => 'iransans';
+  TextStyle get bodySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -295,107 +295,107 @@ class TabletTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Vazirmatn';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayLargeFamily => 'iransans';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Vazirmatn';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayMediumFamily => 'iransans';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Vazirmatn';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displaySmallFamily => 'iransans';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Vazirmatn';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineLargeFamily => 'iransans';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Vazirmatn';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineMediumFamily => 'iransans';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Vazirmatn';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineSmallFamily => 'iransans';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Vazirmatn';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleLargeFamily => 'iransans';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Vazirmatn';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleMediumFamily => 'iransans';
+  TextStyle get titleMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Vazirmatn';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleSmallFamily => 'iransans';
+  TextStyle get titleSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Vazirmatn';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelLargeFamily => 'iransans';
+  TextStyle get labelLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Vazirmatn';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelMediumFamily => 'iransans';
+  TextStyle get labelMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Vazirmatn';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelSmallFamily => 'iransans';
+  TextStyle get labelSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Vazirmatn';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyLargeFamily => 'iransans';
+  TextStyle get bodyLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Vazirmatn';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyMediumFamily => 'iransans';
+  TextStyle get bodyMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Vazirmatn';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodySmallFamily => 'iransans';
+  TextStyle get bodySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -407,107 +407,107 @@ class DesktopTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Vazirmatn';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayLargeFamily => 'iransans';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Vazirmatn';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displayMediumFamily => 'iransans';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Vazirmatn';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get displaySmallFamily => 'iransans';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Vazirmatn';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineLargeFamily => 'iransans';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Vazirmatn';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineMediumFamily => 'iransans';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Vazirmatn';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get headlineSmallFamily => 'iransans';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Vazirmatn';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleLargeFamily => 'iransans';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Vazirmatn';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleMediumFamily => 'iransans';
+  TextStyle get titleMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Vazirmatn';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get titleSmallFamily => 'iransans';
+  TextStyle get titleSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Vazirmatn';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelLargeFamily => 'iransans';
+  TextStyle get labelLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Vazirmatn';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelMediumFamily => 'iransans';
+  TextStyle get labelMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Vazirmatn';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get labelSmallFamily => 'iransans';
+  TextStyle get labelSmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Vazirmatn';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyLargeFamily => 'iransans';
+  TextStyle get bodyLarge => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Vazirmatn';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodyMediumFamily => 'iransans';
+  TextStyle get bodyMedium => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Vazirmatn';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Vazirmatn',
+  String get bodySmallFamily => 'iransans';
+  TextStyle get bodySmall => TextStyle(
+        fontFamily: 'iransans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/register_header/register_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'address_form_widget.dart' show AddressFormWidget;
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ class AddressFormModel extends FlutterFlowModel<AddressFormWidget> {
   final unfocusNode = FocusNode();
   // Model for RegisterHeader component.
   late RegisterHeaderModel registerHeaderModel;
+  // State field(s) for province widget.
+  int? provinceValue;
+  FormFieldController<int>? provinceValueController;
   // State field(s) for address widget.
   FocusNode? addressFocusNode;
   TextEditingController? addressTextController;

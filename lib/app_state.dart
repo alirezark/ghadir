@@ -96,10 +96,20 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_profile', _profile.serialize());
   }
 
-  int _pinCodeCountDown = 20;
+  int _pinCodeCountDown = 120;
   int get pinCodeCountDown => _pinCodeCountDown;
   set pinCodeCountDown(int value) {
     _pinCodeCountDown = value;
+  }
+
+  ConfigStruct _config = ConfigStruct();
+  ConfigStruct get config => _config;
+  set config(ConfigStruct value) {
+    _config = value;
+  }
+
+  void updateConfigStruct(Function(ConfigStruct) updateFn) {
+    updateFn(_config);
   }
 }
 

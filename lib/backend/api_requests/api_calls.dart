@@ -14,7 +14,7 @@ class AuthGroup {
   static String getBaseUrl({
     String? mobile = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {};
   static OtpCall otpCall = OtpCall();
   static LoginCall loginCall = LoginCall();
@@ -88,7 +88,7 @@ class ProfileGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -143,6 +143,7 @@ class UpsertLocationCall {
     double? long,
     String? locationAddress = '',
     String? address = '',
+    double? province,
     String? jwt = '',
   }) async {
     final baseUrl = ProfileGroup.getBaseUrl(
@@ -154,7 +155,8 @@ class UpsertLocationCall {
   "lat": $lat,
   "long": $long,
   "locationAddress": "$locationAddress",
-  "address": "$address"
+  "address": "$address",
+  "province": $province
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'upsertLocation',
@@ -208,7 +210,7 @@ class BiteGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -250,7 +252,7 @@ class TeamateGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -289,6 +291,64 @@ class UpsertTeammateCall {
 
 /// End teamate Group Code
 
+/// Start config Group Code
+
+class ConfigGroup {
+  static String getBaseUrl() => 'http://localhost:1337/api';
+  static Map<String, String> headers = {};
+  static GetConfigCall getConfigCall = GetConfigCall();
+}
+
+class GetConfigCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = ConfigGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getConfig',
+      apiUrl: '$baseUrl/config',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End config Group Code
+
+/// Start base Group Code
+
+class BaseGroup {
+  static String getBaseUrl() => 'http://localhost:1337/api';
+  static Map<String, String> headers = {};
+  static ProvincesCall provincesCall = ProvincesCall();
+}
+
+class ProvincesCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = BaseGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'provinces',
+      apiUrl: '$baseUrl/provinces',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End base Group Code
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -305,10 +365,14 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("List serialization failed. Returning empty list.");
@@ -320,7 +384,7 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("Json serialization failed. Returning empty json.");

@@ -101,6 +101,20 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+  fonts:
+    - family: 'iransans'
+      fonts:
+        - asset: assets/fonts/IRANSansWeb(FaNum)_UltraLight.ttf
+          weight: 200
+        - asset: assets/fonts/IRANSansWeb(FaNum)_Light.ttf
+          weight: 300
+        - asset: assets/fonts/IRANSansWeb(FaNum).ttf
+        - asset: assets/fonts/IRANSansWeb(FaNum)_Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IRANSansWeb(FaNum)_Bold.ttf
+          weight: 700
+        - asset: assets/fonts/IRANSansWeb(FaNum)_Black.ttf
+          weight: 900
 
   
   # An image asset can refer to one or more resolution-specific "variants", see
