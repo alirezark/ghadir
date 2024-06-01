@@ -83,7 +83,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'HomePage',
-          path: '/homePage',
+          path: '/HomePage',
           builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
