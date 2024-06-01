@@ -123,9 +123,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 topRight: Radius.circular(16.0),
                                               ),
                                               child: Image.asset(
-                                                'assets/images/128-ts-reportage-273003-1.jpg',
+                                                'assets/images/-9223372036854775808_-210448.jpg',
                                                 width: 120.0,
-                                                height: 120.0,
+                                                height: 144.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -139,7 +139,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 topRight: Radius.circular(0.0),
                                               ),
                                               child: Image.asset(
-                                                'assets/images/60fd494ef2759.jpg',
+                                                'assets/images/__2.jpg',
                                                 width: 120.0,
                                                 height: 160.0,
                                                 fit: BoxFit.cover,
@@ -155,9 +155,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 topRight: Radius.circular(0.0),
                                               ),
                                               child: Image.asset(
-                                                'assets/images/60fd494ef2759.jpg',
+                                                'assets/images/Billboard_03.jpg',
                                                 width: 100.0,
-                                                height: 110.0,
+                                                height: 79.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -171,10 +171,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 topRight: Radius.circular(0.0),
                                               ),
                                               child: Image.asset(
-                                                'assets/images/128-ts-reportage-273003-1.jpg',
+                                                'assets/images/_1_.jpg',
                                                 width: 80.0,
-                                                height: 180.0,
-                                                fit: BoxFit.cover,
+                                                height: 170.0,
+                                                fit: BoxFit.fill,
+                                                alignment: const Alignment(0.0, 1.0),
                                               ),
                                             ),
                                         () => ClipRRect(
@@ -187,9 +188,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 topRight: Radius.circular(0.0),
                                               ),
                                               child: Image.asset(
-                                                'assets/images/62309259.jpg',
+                                                'assets/images/Site-2.jpg',
                                                 width: 120.0,
-                                                height: 100.0,
+                                                height: 98.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -209,21 +210,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Text(
-                                          'سامانه غدیر',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineLarge
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineLargeFamily,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(FlutterFlowTheme
-                                                            .of(context)
-                                                        .headlineLargeFamily),
-                                              ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/654323223.png',
+                                            width: 300.0,
+                                            height: 80.0,
+                                            fit: BoxFit.fitHeight,
+                                          ),
                                         ),
                                         Padding(
                                           padding:

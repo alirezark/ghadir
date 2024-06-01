@@ -42,9 +42,8 @@ class _VerifyWidgetState extends State<VerifyWidget> {
       _model.pinCodeCountDownTimer = InstantTimer.periodic(
         duration: const Duration(milliseconds: 1000),
         callback: (timer) async {
-          setState(() {
-            FFAppState().pinCodeCountDown = FFAppState().pinCodeCountDown + -1;
-          });
+          FFAppState().pinCodeCountDown = FFAppState().pinCodeCountDown + -1;
+          setState(() {});
           if (FFAppState().pinCodeCountDown.toString() == '0') {
             _model.pinCodeCountDownTimer?.cancel();
           }
@@ -143,9 +142,9 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                           topRight: Radius.circular(16.0),
                                         ),
                                         child: Image.asset(
-                                          'assets/images/128-ts-reportage-273003-1.jpg',
+                                          'assets/images/-9223372036854775808_-210448.jpg',
                                           width: 120.0,
-                                          height: 120.0,
+                                          height: 144.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -157,7 +156,7 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                           topRight: Radius.circular(0.0),
                                         ),
                                         child: Image.asset(
-                                          'assets/images/60fd494ef2759.jpg',
+                                          'assets/images/__2.jpg',
                                           width: 120.0,
                                           height: 160.0,
                                           fit: BoxFit.cover,
@@ -171,9 +170,9 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                           topRight: Radius.circular(0.0),
                                         ),
                                         child: Image.asset(
-                                          'assets/images/60fd494ef2759.jpg',
+                                          'assets/images/Billboard_03.jpg',
                                           width: 100.0,
-                                          height: 110.0,
+                                          height: 79.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -185,10 +184,11 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                           topRight: Radius.circular(0.0),
                                         ),
                                         child: Image.asset(
-                                          'assets/images/128-ts-reportage-273003-1.jpg',
+                                          'assets/images/_1_.jpg',
                                           width: 80.0,
-                                          height: 180.0,
-                                          fit: BoxFit.cover,
+                                          height: 170.0,
+                                          fit: BoxFit.fill,
+                                          alignment: const Alignment(0.0, 1.0),
                                         ),
                                       ),
                                   () => ClipRRect(
@@ -199,9 +199,9 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                           topRight: Radius.circular(0.0),
                                         ),
                                         child: Image.asset(
-                                          'assets/images/62309259.jpg',
+                                          'assets/images/Site-2.jpg',
                                           width: 120.0,
-                                          height: 100.0,
+                                          height: 98.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -219,21 +219,13 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: Text(
-                                  'سامانه غدیر',
-                                  style: FlutterFlowTheme.of(context)
-                                      .displaySmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .displaySmallFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmallFamily),
-                                      ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/654323223.png',
+                                  width: 300.0,
+                                  height: 80.0,
+                                  fit: BoxFit.fitHeight,
                                 ),
                               ),
                               Align(
@@ -535,22 +527,20 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                                           .secondary,
                                                 ),
                                               );
-                                              setState(() {
-                                                FFAppState().pinCodeCountDown =
-                                                    120;
-                                              });
+                                              FFAppState().pinCodeCountDown =
+                                                  120;
+                                              setState(() {});
                                               _model.pinCodeCountDown2 =
                                                   InstantTimer.periodic(
                                                 duration: const Duration(
                                                     milliseconds: 1000),
                                                 callback: (timer) async {
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .pinCodeCountDown =
-                                                        FFAppState()
-                                                                .pinCodeCountDown +
-                                                            -1;
-                                                  });
+                                                  FFAppState()
+                                                          .pinCodeCountDown =
+                                                      FFAppState()
+                                                              .pinCodeCountDown +
+                                                          -1;
+                                                  setState(() {});
                                                   if (FFAppState()
                                                           .pinCodeCountDown
                                                           .toString() ==

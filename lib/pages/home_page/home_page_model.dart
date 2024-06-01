@@ -9,6 +9,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (getConfig)] action in HomePage widget.
+  ApiCallResponse? apiResult6i8;
   InstantTimer? instantTimer;
   // Stores action output result for [Backend Call - API (get)] action in HomePage widget.
   ApiCallResponse? apiResultmvz;

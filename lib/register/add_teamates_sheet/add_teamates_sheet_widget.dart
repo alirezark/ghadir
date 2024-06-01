@@ -661,9 +661,8 @@ class _AddTeamatesSheetWidgetState extends State<AddTeamatesSheetWidget> {
                           _model.genderValue,
                           _model.ageValue,
                         );
-                        setState(() {
-                          FFAppState().addToTeammates(_model.teamate!);
-                        });
+                        FFAppState().addToTeammates(_model.teamate!);
+                        setState(() {});
                         context.pop();
 
                         setState(() {});

@@ -52,12 +52,12 @@ class _EmptyListsimpleWidgetState extends State<EmptyListsimpleWidget> {
           child: Text(
             'بدون هم گروهی',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Vazirmatn',
+                  fontFamily: 'iransans',
                   color: FlutterFlowTheme.of(context).secondaryText,
                   fontSize: 24.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Vazirmatn'),
+                  useGoogleFonts: GoogleFonts.asMap().containsKey('iransans'),
                 ),
           ),
         ),
@@ -66,12 +66,12 @@ class _EmptyListsimpleWidgetState extends State<EmptyListsimpleWidget> {
           child: Text(
             'برای شرکت به صورت گروهی، همگروهیتون رو اضافه کنید',
             style: FlutterFlowTheme.of(context).labelMedium.override(
-                  fontFamily: 'Vazirmatn',
+                  fontFamily: 'iransans',
                   color: FlutterFlowTheme.of(context).secondaryText,
                   fontSize: 14.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Vazirmatn'),
+                  useGoogleFonts: GoogleFonts.asMap().containsKey('iransans'),
                 ),
           ),
         ),

@@ -10,10 +10,14 @@ class ProfileStruct extends BaseStruct {
     String? lastName,
     ParticipantStruct? participantType,
     String? address,
+    String? biteName,
+    String? biteCount,
   })  : _firstName = firstName,
         _lastName = lastName,
         _participantType = participantType,
-        _address = address;
+        _address = address,
+        _biteName = biteName,
+        _biteCount = biteCount;
 
   // "firstName" field.
   String? _firstName;
@@ -42,12 +46,26 @@ class ProfileStruct extends BaseStruct {
   set address(String? val) => _address = val;
   bool hasAddress() => _address != null;
 
+  // "biteName" field.
+  String? _biteName;
+  String get biteName => _biteName ?? '';
+  set biteName(String? val) => _biteName = val;
+  bool hasBiteName() => _biteName != null;
+
+  // "biteCount" field.
+  String? _biteCount;
+  String get biteCount => _biteCount ?? '';
+  set biteCount(String? val) => _biteCount = val;
+  bool hasBiteCount() => _biteCount != null;
+
   static ProfileStruct fromMap(Map<String, dynamic> data) => ProfileStruct(
         firstName: data['firstName'] as String?,
         lastName: data['lastName'] as String?,
         participantType:
             ParticipantStruct.maybeFromMap(data['participantType']),
         address: data['address'] as String?,
+        biteName: data['biteName'] as String?,
+        biteCount: data['biteCount'] as String?,
       );
 
   static ProfileStruct? maybeFromMap(dynamic data) =>
@@ -58,6 +76,8 @@ class ProfileStruct extends BaseStruct {
         'lastName': _lastName,
         'participantType': _participantType?.toMap(),
         'address': _address,
+        'biteName': _biteName,
+        'biteCount': _biteCount,
       }.withoutNulls;
 
   @override
@@ -76,6 +96,14 @@ class ProfileStruct extends BaseStruct {
         ),
         'address': serializeParam(
           _address,
+          ParamType.String,
+        ),
+        'biteName': serializeParam(
+          _biteName,
+          ParamType.String,
+        ),
+        'biteCount': serializeParam(
+          _biteCount,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -103,6 +131,16 @@ class ProfileStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        biteName: deserializeParam(
+          data['biteName'],
+          ParamType.String,
+          false,
+        ),
+        biteCount: deserializeParam(
+          data['biteCount'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -114,12 +152,14 @@ class ProfileStruct extends BaseStruct {
         firstName == other.firstName &&
         lastName == other.lastName &&
         participantType == other.participantType &&
-        address == other.address;
+        address == other.address &&
+        biteName == other.biteName &&
+        biteCount == other.biteCount;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([firstName, lastName, participantType, address]);
+  int get hashCode => const ListEquality().hash(
+      [firstName, lastName, participantType, address, biteName, biteCount]);
 }
 
 ProfileStruct createProfileStruct({
@@ -127,10 +167,14 @@ ProfileStruct createProfileStruct({
   String? lastName,
   ParticipantStruct? participantType,
   String? address,
+  String? biteName,
+  String? biteCount,
 }) =>
     ProfileStruct(
       firstName: firstName,
       lastName: lastName,
       participantType: participantType ?? ParticipantStruct(),
       address: address,
+      biteName: biteName,
+      biteCount: biteCount,
     );

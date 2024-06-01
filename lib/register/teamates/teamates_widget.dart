@@ -316,11 +316,11 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
                                                                     ),
                                                                     onPressed:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .removeAtIndexFromTeammates(
+                                                                              teammateIndex);
                                                                       setState(
-                                                                          () {
-                                                                        FFAppState()
-                                                                            .removeAtIndexFromTeammates(teammateIndex);
-                                                                      });
+                                                                          () {});
                                                                     },
                                                                   ),
                                                                 ],

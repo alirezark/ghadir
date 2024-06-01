@@ -3,9 +3,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/register_header/register_header_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -156,14 +158,12 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                       height: double.infinity,
                                       onLocationSelect:
                                           (address, lat, long) async {
-                                        setState(() {
-                                          FFAppState().location =
-                                              LocationStruct(
-                                            address: address,
-                                            lat: lat,
-                                            long: long,
-                                          );
-                                        });
+                                        FFAppState().location = LocationStruct(
+                                          address: address,
+                                          lat: lat,
+                                          long: long,
+                                        );
+                                        setState(() {});
                                       },
                                     ),
                                   ),
@@ -179,10 +179,9 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                             const AlignmentDirectional(0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            setState(() {
-                                              FFAppState().location =
-                                                  LocationStruct();
-                                            });
+                                            FFAppState().location =
+                                                LocationStruct();
+                                            setState(() {});
                                           },
                                           text: 'ویرایش',
                                           options: FFButtonOptions(
@@ -229,13 +228,145 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                               ),
                             ),
                             if (FFAppState().location.address != '')
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    child: TextFormField(
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FutureBuilder<ApiCallResponse>(
+                                      future: BaseGroup.provincesCall.call(),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        final provinceProvincesResponse =
+                                            snapshot.data!;
+                                        return FlutterFlowDropDown<int>(
+                                          controller: _model
+                                                  .provinceValueController ??=
+                                              FormFieldController<int>(null),
+                                          options: List<
+                                              int>.from(ProvinceResponseStruct
+                                                  .maybeFromMap(
+                                                      provinceProvincesResponse
+                                                          .jsonBody)!
+                                              .data
+                                              .map((e) => e.id)
+                                              .toList()),
+                                          optionLabels: ProvinceResponseStruct
+                                                  .maybeFromMap(
+                                                      provinceProvincesResponse
+                                                          .jsonBody)!
+                                              .data
+                                              .map((e) => e.name)
+                                              .toList(),
+                                          onChanged: (val) => setState(
+                                              () => _model.provinceValue = val),
+                                          width: double.infinity,
+                                          height: 56.0,
+                                          searchHintTextStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily),
+                                                  ),
+                                          searchTextStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                          hintText: 'استان',
+                                          searchHintText: 'جستجوی استان',
+                                          icon: Icon(
+                                            Icons.keyboard_arrow_down_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          ),
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          elevation: 2.0,
+                                          borderColor: Colors.transparent,
+                                          borderWidth: 2.0,
+                                          borderRadius: 8.0,
+                                          margin:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 4.0, 16.0, 4.0),
+                                          hidesUnderline: true,
+                                          isOverButton: true,
+                                          isSearchable: true,
+                                          isMultiSelect: false,
+                                          labelText: '',
+                                          labelTextStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily),
+                                              ),
+                                        );
+                                      },
+                                    ),
+                                    TextFormField(
                                       controller: _model.addressTextController,
                                       focusNode: _model.addressFocusNode,
                                       autofocus: true,
@@ -306,6 +437,9 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -325,8 +459,8 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                           .addressTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
-                                ].divide(const SizedBox(height: 16.0)),
+                                  ].divide(const SizedBox(height: 16.0)),
+                                ),
                               ),
                           ].divide(const SizedBox(height: 16.0)),
                         ),
@@ -348,6 +482,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                               locationAddress: FFAppState().location.address,
                               address: _model.addressTextController.text,
                               jwt: currentAuthenticationToken,
+                              province: _model.provinceValue?.toDouble(),
                             );
                             if ((_model.apiResultjfb?.succeeded ?? true)) {
                               context.pushNamed('HomePage');

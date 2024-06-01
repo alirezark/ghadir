@@ -98,9 +98,8 @@ class _RegisterTypeWidgetState extends State<RegisterTypeWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        setState(() {
-                          FFAppState().participantType = ParticipantType.family;
-                        });
+                        FFAppState().participantType = ParticipantType.family;
+                        setState(() {});
                       },
                       child: Container(
                         width: double.infinity,
@@ -228,9 +227,8 @@ class _RegisterTypeWidgetState extends State<RegisterTypeWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        setState(() {
-                          FFAppState().participantType = ParticipantType.group;
-                        });
+                        FFAppState().participantType = ParticipantType.group;
+                        setState(() {});
                       },
                       child: Container(
                         width: double.infinity,
