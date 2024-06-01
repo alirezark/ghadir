@@ -370,7 +370,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         maxLength}) =>
                                                     null,
                                                 keyboardType:
-                                                    TextInputType.emailAddress,
+                                                    TextInputType.phone,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
