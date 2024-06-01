@@ -354,7 +354,7 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                                 required isFocused,
                                                 maxLength}) =>
                                             null,
-                                        keyboardType: TextInputType.number,
+                                        keyboardType: TextInputType.phone,
                                         validator: _model
                                             .codeTextControllerValidator
                                             .asValidator(context),

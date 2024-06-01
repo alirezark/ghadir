@@ -14,7 +14,7 @@ class AuthGroup {
   static String getBaseUrl({
     String? mobile = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {};
   static OtpCall otpCall = OtpCall();
   static LoginCall loginCall = LoginCall();
@@ -88,7 +88,7 @@ class ProfileGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -210,7 +210,7 @@ class BiteGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'https://ghadir-api.mardomi.org/api';
+      'http://localhost:1337/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
