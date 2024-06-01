@@ -54,6 +54,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           } else if ((_model.apiResultmvz?.statusCode ?? 200) == 404) {
             await action_blocks.handleUserState(context);
             _model.instantTimer?.cancel();
+          } else if ((_model.apiResultmvz?.statusCode ?? 200).toString() ==
+              '401') {
+            GoRouter.of(context).prepareAuthEvent();
+            await authManager.signOut();
+            GoRouter.of(context).clearRedirectLocation();
+
+            context.pushNamedAuth('login', context.mounted);
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
