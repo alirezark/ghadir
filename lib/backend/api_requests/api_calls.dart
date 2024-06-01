@@ -14,7 +14,7 @@ class AuthGroup {
   static String getBaseUrl({
     String? mobile = '',
   }) =>
-      'http://localhost:1337/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {};
   static OtpCall otpCall = OtpCall();
   static LoginCall loginCall = LoginCall();
@@ -88,7 +88,7 @@ class ProfileGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'http://localhost:1337/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -210,7 +210,7 @@ class BiteGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'http://localhost:1337/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -227,7 +227,7 @@ class ListCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list',
-      apiUrl: '$baseUrl/bites',
+      apiUrl: '$baseUrl/bites?sort=createdAt:desc',
       callType: ApiCallType.GET,
       headers: {
         'Authorization': 'Bearer $jwt',
@@ -252,7 +252,7 @@ class TeamateGroup {
   static String getBaseUrl({
     String? jwt = '',
   }) =>
-      'http://localhost:1337/api';
+      'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {
     'Authorization': 'Bearer [jwt]',
   };
@@ -294,7 +294,7 @@ class UpsertTeammateCall {
 /// Start config Group Code
 
 class ConfigGroup {
-  static String getBaseUrl() => 'http://localhost:1337/api';
+  static String getBaseUrl() => 'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {};
   static GetConfigCall getConfigCall = GetConfigCall();
 }
@@ -323,7 +323,7 @@ class GetConfigCall {
 /// Start base Group Code
 
 class BaseGroup {
-  static String getBaseUrl() => 'http://localhost:1337/api';
+  static String getBaseUrl() => 'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {};
   static ProvincesCall provincesCall = ProvincesCall();
 }

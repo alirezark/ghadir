@@ -156,7 +156,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/Billboard_02.jpg',
+                                          'assets/images/Billboard_03.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
@@ -168,7 +168,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/_1_.jpg',
+                                          'assets/images/__2.jpg',
                                           width: double.infinity,
                                           fit: BoxFit.cover,
                                         ),
