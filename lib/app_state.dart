@@ -111,6 +111,76 @@ class FFAppState extends ChangeNotifier {
   void updateConfigStruct(Function(ConfigStruct) updateFn) {
     updateFn(_config);
   }
+
+  DeliveryType? _deliveryType;
+  DeliveryType? get deliveryType => _deliveryType;
+  set deliveryType(DeliveryType? value) {
+    _deliveryType = value;
+  }
+
+  List<LocalTimeStruct> _localTimes = [];
+  List<LocalTimeStruct> get localTimes => _localTimes;
+  set localTimes(List<LocalTimeStruct> value) {
+    _localTimes = value;
+  }
+
+  void addToLocalTimes(LocalTimeStruct value) {
+    _localTimes.add(value);
+  }
+
+  void removeFromLocalTimes(LocalTimeStruct value) {
+    _localTimes.remove(value);
+  }
+
+  void removeAtIndexFromLocalTimes(int index) {
+    _localTimes.removeAt(index);
+  }
+
+  void updateLocalTimesAtIndex(
+    int index,
+    LocalTimeStruct Function(LocalTimeStruct) updateFn,
+  ) {
+    _localTimes[index] = updateFn(_localTimes[index]);
+  }
+
+  void insertAtIndexInLocalTimes(int index, LocalTimeStruct value) {
+    _localTimes.insert(index, value);
+  }
+
+  List<LocalTimeStruct> _localDates = [];
+  List<LocalTimeStruct> get localDates => _localDates;
+  set localDates(List<LocalTimeStruct> value) {
+    _localDates = value;
+  }
+
+  void addToLocalDates(LocalTimeStruct value) {
+    _localDates.add(value);
+  }
+
+  void removeFromLocalDates(LocalTimeStruct value) {
+    _localDates.remove(value);
+  }
+
+  void removeAtIndexFromLocalDates(int index) {
+    _localDates.removeAt(index);
+  }
+
+  void updateLocalDatesAtIndex(
+    int index,
+    LocalTimeStruct Function(LocalTimeStruct) updateFn,
+  ) {
+    _localDates[index] = updateFn(_localDates[index]);
+  }
+
+  void insertAtIndexInLocalDates(int index, LocalTimeStruct value) {
+    _localDates.insert(index, value);
+  }
+
+  LatLng? _latlong = const LatLng(35.700875, 51.39126);
+  LatLng? get latlong => _latlong;
+  set latlong(LatLng? value) {
+    _latlong = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

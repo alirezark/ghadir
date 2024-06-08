@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
@@ -84,6 +85,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/HomePage',
+          requireAuth: true,
           builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
@@ -107,9 +109,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const Details06SubscriptionPaymentWidget(),
         ),
         FFRoute(
-          name: 'registerType',
-          path: '/registerType',
-          builder: (context, params) => const RegisterTypeWidget(),
+          name: 'deliverType',
+          path: '/deliverType',
+          builder: (context, params) => const DeliverTypeWidget(),
         ),
         FFRoute(
           name: 'Tab',
@@ -138,8 +140,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/addressForm',
           requireAuth: true,
           builder: (context, params) => const AddressFormWidget(),
+        ),
+        FFRoute(
+          name: 'deliveryInfo',
+          path: '/deliveryInfo',
+          requireAuth: true,
+          builder: (context, params) => const DeliveryInfoWidget(),
+        ),
+        FFRoute(
+          name: 'deliveryTime',
+          path: '/deliveryTime',
+          requireAuth: true,
+          builder: (context, params) => DeliveryTimeWidget(
+            type: params.getParam<DeliveryType>(
+              'type',
+              ParamType.Enum,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'revayatInfo',
+          path: '/revayatInfo',
+          requireAuth: true,
+          builder: (context, params) => const RevayatInfoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -326,7 +352,7 @@ class FFRoute {
                   color: Colors.transparent,
                   child: Image.asset(
                     'assets/images/654323223.png',
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.none,
                   ),
                 )
               : page;

@@ -15,6 +15,12 @@ enum Relation {
   family,
 }
 
+enum DeliveryType {
+  localCenter,
+  walkCenter,
+  self,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -32,6 +38,8 @@ T? deserializeEnum<T>(String? value) {
       return Gender.values.deserialize(value) as T?;
     case (Relation):
       return Relation.values.deserialize(value) as T?;
+    case (DeliveryType):
+      return DeliveryType.values.deserialize(value) as T?;
     default:
       return null;
   }
