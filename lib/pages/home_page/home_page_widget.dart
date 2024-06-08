@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/actions/actions.dart' as action_blocks;
 import 'dart:math' as math;
@@ -33,7 +34,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResult6i8 = await ConfigGroup.getConfigCall.call();
+      _model.apiResult6i8 = await BaseGroup.getConfigCall.call();
       if ((_model.apiResult6i8?.succeeded ?? true)) {
         FFAppState().config =
             ConfigStruct.maybeFromMap((_model.apiResult6i8?.jsonBody ?? ''))!;
@@ -319,7 +320,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   decoration: const BoxDecoration(),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 16.0),
+                                        0.0, 32.0, 0.0, 32.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -389,30 +390,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              FFAppState()
-                                                  .config
-                                                  .homeCreatorMsgStep0,
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
-                                            ),
-                                            Text(
                                               'جهت دعوت دیگران به لقمه میلیونی می توانید محتواهای زیر را به اشتراک بگذارید',
                                               textAlign: TextAlign.center,
                                               style:
@@ -477,21 +454,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            const Color(0xFFEEEEEE),
-                                                        boxShadow: const [
-                                                          BoxShadow(
-                                                            blurRadius: 4.0,
-                                                            color: Color(
-                                                                0x33000000),
-                                                            offset: Offset(
-                                                              0.0,
-                                                              2.0,
-                                                            ),
-                                                          )
-                                                        ],
+                                                            const Color(0x274CAF50),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(16.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 2.0,
+                                                        ),
                                                       ),
                                                       child: Padding(
                                                         padding:
@@ -504,12 +476,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   .center,
                                                           children: [
                                                             Icon(
-                                                              Icons
-                                                                  .image_outlined,
+                                                              Icons.amp_stories,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .info,
-                                                              size: 44.0,
+                                                                  .primary,
+                                                              size: 46.0,
                                                             ),
                                                             Text(
                                                               'دریافت استوری',
@@ -520,8 +491,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyMediumFamily,
+                                                                    color: const Color(
+                                                                        0xFF2C8F30),
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -556,25 +532,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       height: 100.0,
                                                       constraints:
                                                           const BoxConstraints(
-                                                        minWidth: 120.0,
+                                                        maxWidth: 120.0,
                                                       ),
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            const Color(0xFFEEEEEE),
-                                                        boxShadow: const [
-                                                          BoxShadow(
-                                                            blurRadius: 4.0,
-                                                            color: Color(
-                                                                0x33000000),
-                                                            offset: Offset(
-                                                              0.0,
-                                                              2.0,
-                                                            ),
-                                                          )
-                                                        ],
+                                                            const Color(0x274CAF50),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(16.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 2.0,
+                                                        ),
                                                       ),
                                                       child: Padding(
                                                         padding:
@@ -588,14 +559,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           children: [
                                                             Icon(
                                                               Icons
-                                                                  .image_outlined,
+                                                                  .photo_filter,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .info,
-                                                              size: 44.0,
+                                                                  .primary,
+                                                              size: 46.0,
                                                             ),
                                                             Text(
-                                                              'دریافت پست\n',
+                                                              'دریافت پست',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -603,8 +574,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
                                                                             .bodyMediumFamily,
+                                                                    color: const Color(
+                                                                        0xFF2C8F30),
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -618,10 +594,67 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 16.0)),
+                                              ].divide(const SizedBox(width: 32.0)),
                                             ),
                                           ),
                                         ),
+                                        if (FFAppState().config.activePhase2 ==
+                                            false)
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            child: Container(
+                                              decoration: const BoxDecoration(),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  context.pushNamed(
+                                                      'deliveryInfo');
+                                                },
+                                                text: 'ثبت نحوه تحویل لقمه ها',
+                                                options: FFButtonOptions(
+                                                  width: double.infinity,
+                                                  height: 40.0,
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallFamily),
+                                                          ),
+                                                  elevation: 3.0,
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                       ].divide(const SizedBox(height: 16.0)),
                                     ),
                                   ),

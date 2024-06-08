@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -94,7 +95,10 @@ class ProfileGroup {
   };
   static UpsertCall upsertCall = UpsertCall();
   static UpsertLocationCall upsertLocationCall = UpsertLocationCall();
+  static UpsertLocalTimeCall upsertLocalTimeCall = UpsertLocalTimeCall();
   static GetCall getCall = GetCall();
+  static UpsertDeliveryTypeCall upsertDeliveryTypeCall =
+      UpsertDeliveryTypeCall();
 }
 
 class UpsertCall {
@@ -177,6 +181,38 @@ class UpsertLocationCall {
   }
 }
 
+class UpsertLocalTimeCall {
+  Future<ApiCallResponse> call({
+    int? localTime,
+    String? jwt = '',
+  }) async {
+    final baseUrl = ProfileGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "localTime": $localTime
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'upsertLocalTime',
+      apiUrl: '$baseUrl/profile',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class GetCall {
   Future<ApiCallResponse> call({
     String? jwt = '',
@@ -193,6 +229,38 @@ class GetCall {
         'Authorization': 'Bearer $jwt',
       },
       params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpsertDeliveryTypeCall {
+  Future<ApiCallResponse> call({
+    String? deliveryType = '',
+    String? jwt = '',
+  }) async {
+    final baseUrl = ProfileGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "deliveryType": "$deliveryType"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'upsertDeliveryType',
+      apiUrl: '$baseUrl/profile',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -291,17 +359,40 @@ class UpsertTeammateCall {
 
 /// End teamate Group Code
 
-/// Start config Group Code
+/// Start base Group Code
 
-class ConfigGroup {
+class BaseGroup {
   static String getBaseUrl() => 'https://ghadir-api.mardomi.org/api';
   static Map<String, String> headers = {};
+  static ProvincesCall provincesCall = ProvincesCall();
   static GetConfigCall getConfigCall = GetConfigCall();
+  static LocalsListCall localsListCall = LocalsListCall();
+  static LocalTimesCall localTimesCall = LocalTimesCall();
+  static LocalDateCall localDateCall = LocalDateCall();
+}
+
+class ProvincesCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = BaseGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'provinces',
+      apiUrl: '$baseUrl/provinces',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class GetConfigCall {
   Future<ApiCallResponse> call() async {
-    final baseUrl = ConfigGroup.getBaseUrl();
+    final baseUrl = BaseGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getConfig',
@@ -318,26 +409,74 @@ class GetConfigCall {
   }
 }
 
-/// End config Group Code
-
-/// Start base Group Code
-
-class BaseGroup {
-  static String getBaseUrl() => 'https://ghadir-api.mardomi.org/api';
-  static Map<String, String> headers = {};
-  static ProvincesCall provincesCall = ProvincesCall();
-}
-
-class ProvincesCall {
-  Future<ApiCallResponse> call() async {
+class LocalsListCall {
+  Future<ApiCallResponse> call({
+    String? type = '',
+  }) async {
     final baseUrl = BaseGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
-      callName: 'provinces',
-      apiUrl: '$baseUrl/provinces',
+      callName: 'localsList',
+      apiUrl: '$baseUrl/locals',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'filters[type]': type,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? data(dynamic response) => getJsonField(
+        response,
+        r'''$["data"]''',
+        true,
+      ) as List?;
+}
+
+class LocalTimesCall {
+  Future<ApiCallResponse> call({
+    String? local = '',
+    String? date = '',
+  }) async {
+    final baseUrl = BaseGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'localTimes',
+      apiUrl: '$baseUrl/localTime/getTimes',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'local': local,
+        'date': date,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LocalDateCall {
+  Future<ApiCallResponse> call({
+    String? local = '',
+  }) async {
+    final baseUrl = BaseGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'localDate',
+      apiUrl: '$baseUrl/localTime/getDates',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'local': local,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

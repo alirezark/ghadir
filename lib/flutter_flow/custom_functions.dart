@@ -21,3 +21,12 @@ String toTimeString(int time) {
   num seconds = time % 60;
   return ' $minutes:${seconds.toString().padLeft(2, '0')} ';
 }
+
+String? newCustomFunction() {
+  // get from and to datetime and return jalali formated string
+  final now = DateTime.now();
+  final jalaliFormatter = DateFormat('yyyy/MM/dd', 'fa_IR');
+  final jalaliFrom = jalaliFormatter.format(now);
+  final jalaliTo = jalaliFormatter.format(now.add(Duration(days: 7)));
+  return '$jalaliFrom - $jalaliTo';
+}
