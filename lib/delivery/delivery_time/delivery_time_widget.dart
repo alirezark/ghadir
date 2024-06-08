@@ -4,13 +4,11 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/delivery_header/delivery_header_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_static_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:mapbox_search/mapbox_search.dart' as mapbox;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -114,31 +112,6 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              width: double.infinity,
-                              height: 300.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: const FlutterFlowStaticMap(
-                                location: LatLng(9.341465, -79.891704),
-                                apiKey: 'ENTER_YOUR_MAPBOX_API_KEY_HERE',
-                                style: mapbox.MapBoxStyle.Light,
-                                width: 300.0,
-                                height: 300.0,
-                                fit: BoxFit.cover,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
-                                ),
-                                zoom: 12,
-                                tilt: 0,
-                                rotation: 0,
-                              ),
-                            ),
                             Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
