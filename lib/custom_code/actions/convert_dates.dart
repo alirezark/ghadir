@@ -15,7 +15,7 @@ import 'package:shamsi_date/shamsi_date.dart';
 
 String formatTime(String time) {
   // Define the input format
-  DateFormat inputFormat = DateFormat("HH:mm:ss");
+  DateFormat inputFormat = DateFormat("HH:mm:ss.SSS");
 
   // Parse the time string
   DateTime dateTime = inputFormat.parse(time);
