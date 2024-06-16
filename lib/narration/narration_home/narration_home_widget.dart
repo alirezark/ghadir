@@ -114,15 +114,51 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
                                   borderRadius: BorderRadius.circular(16.0),
                                   shape: BoxShape.rectangle,
                                 ),
-                                child: const FlutterFlowVideoPlayer(
-                                  path:
-                                      'https://ghadir-api.mardomi.org/uploads/VID_20240531_153328_557_6878824abb.mp4',
-                                  videoType: VideoType.network,
-                                  autoPlay: false,
-                                  looping: true,
-                                  showControls: true,
-                                  allowFullScreen: true,
-                                  allowPlaybackSpeedMenu: false,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    const FlutterFlowVideoPlayer(
+                                      path:
+                                          'https://ghadir-api.mardomi.org/uploads/VID_20240531_153328_557_6878824abb.mp4',
+                                      videoType: VideoType.network,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                    const FlutterFlowVideoPlayer(
+                                      path:
+                                          'https://file-examples.com/storage/fe3cb26995666504a8d6180/2017/04/file_example_MP4_640_3MG.mp4',
+                                      videoType: VideoType.network,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                    const FlutterFlowVideoPlayer(
+                                      path:
+                                          'https://file-examples.com/storage/fe3cb26995666504a8d6180/2017/04/file_example_MP4_640_3MG.mp4',
+                                      videoType: VideoType.network,
+                                      width: double.infinity,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                    const FlutterFlowVideoPlayer(
+                                      path:
+                                          'assets/videos/VID_20240531_153328_557.mp4',
+                                      videoType: VideoType.asset,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                  ].divide(const SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
