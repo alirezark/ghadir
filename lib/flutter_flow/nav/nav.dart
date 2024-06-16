@@ -163,6 +163,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/revayatInfo',
           requireAuth: true,
           builder: (context, params) => const RevayatInfoWidget(),
+        ),
+        FFRoute(
+          name: 'narrationHome',
+          path: '/narrationHome',
+          requireAuth: true,
+          builder: (context, params) => const NarrationHomeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
