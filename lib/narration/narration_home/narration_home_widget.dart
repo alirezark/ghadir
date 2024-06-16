@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -112,40 +111,21 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
                               borderRadius: BorderRadius.circular(16.0),
                               child: Container(
                                 width: double.infinity,
-                                height: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16.0),
                                   shape: BoxShape.rectangle,
                                 ),
-                                child: SizedBox(
+                                child: FlutterFlowVideoPlayer(
+                                  path: FFAppState().config.deliveryInfoVideo,
+                                  videoType: VideoType.network,
                                   width: double.infinity,
-                                  height: 300.0,
-                                  child: custom_widgets.CustomVidPlayer(
-                                    width: double.infinity,
-                                    height: 300.0,
-                                    videoPath:
-                                        'https://ghadir-api.mardomi.org/uploads/VID_20240531_153328_557_6878824abb.mp4',
-                                    playPauseVideoAction: false,
-                                    looping: false,
-                                    showControls: true,
-                                    allowFullScreen: true,
-                                    allowPlayBackSpeedChanging: false,
-                                    controlAudio: false,
-                                  ),
+                                  autoPlay: false,
+                                  looping: true,
+                                  showControls: true,
+                                  allowFullScreen: true,
+                                  allowPlaybackSpeedMenu: false,
                                 ),
                               ),
-                            ),
-                            const FlutterFlowVideoPlayer(
-                              path:
-                                  'https://ghadir-api.mardomi.org/uploads/VID_20240531_153328_557_6878824abb.mp4',
-                              videoType: VideoType.network,
-                              width: double.infinity,
-                              height: 300.0,
-                              autoPlay: false,
-                              looping: true,
-                              showControls: true,
-                              allowFullScreen: true,
-                              allowPlaybackSpeedMenu: false,
                             ),
                             Container(
                               width: double.infinity,
