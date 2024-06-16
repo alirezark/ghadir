@@ -10,25 +10,35 @@ class ProfileStruct extends BaseStruct {
     String? lastName,
     ParticipantStruct? participantType,
     String? address,
-    String? biteName,
-    String? biteCount,
+    List<UserBiteStruct>? userBites,
+    List<TeammateStruct>? teammates,
+    double? lat,
+    double? long,
+    String? locationAddress,
+    ProvinceStruct? province,
   })  : _firstName = firstName,
         _lastName = lastName,
         _participantType = participantType,
         _address = address,
-        _biteName = biteName,
-        _biteCount = biteCount;
+        _userBites = userBites,
+        _teammates = teammates,
+        _lat = lat,
+        _long = long,
+        _locationAddress = locationAddress,
+        _province = province;
 
   // "firstName" field.
   String? _firstName;
   String get firstName => _firstName ?? '';
   set firstName(String? val) => _firstName = val;
+
   bool hasFirstName() => _firstName != null;
 
   // "lastName" field.
   String? _lastName;
   String get lastName => _lastName ?? '';
   set lastName(String? val) => _lastName = val;
+
   bool hasLastName() => _lastName != null;
 
   // "participantType" field.
@@ -36,27 +46,77 @@ class ProfileStruct extends BaseStruct {
   ParticipantStruct get participantType =>
       _participantType ?? ParticipantStruct();
   set participantType(ParticipantStruct? val) => _participantType = val;
-  void updateParticipantType(Function(ParticipantStruct) updateFn) =>
-      updateFn(_participantType ??= ParticipantStruct());
+
+  void updateParticipantType(Function(ParticipantStruct) updateFn) {
+    updateFn(participantType ??= ParticipantStruct());
+  }
+
   bool hasParticipantType() => _participantType != null;
 
   // "address" field.
   String? _address;
   String get address => _address ?? '';
   set address(String? val) => _address = val;
+
   bool hasAddress() => _address != null;
 
-  // "biteName" field.
-  String? _biteName;
-  String get biteName => _biteName ?? '';
-  set biteName(String? val) => _biteName = val;
-  bool hasBiteName() => _biteName != null;
+  // "user_bites" field.
+  List<UserBiteStruct>? _userBites;
+  List<UserBiteStruct> get userBites => _userBites ?? const [];
+  set userBites(List<UserBiteStruct>? val) => _userBites = val;
 
-  // "biteCount" field.
-  String? _biteCount;
-  String get biteCount => _biteCount ?? '';
-  set biteCount(String? val) => _biteCount = val;
-  bool hasBiteCount() => _biteCount != null;
+  void updateUserBites(Function(List<UserBiteStruct>) updateFn) {
+    updateFn(userBites ??= []);
+  }
+
+  bool hasUserBites() => _userBites != null;
+
+  // "teammates" field.
+  List<TeammateStruct>? _teammates;
+  List<TeammateStruct> get teammates => _teammates ?? const [];
+  set teammates(List<TeammateStruct>? val) => _teammates = val;
+
+  void updateTeammates(Function(List<TeammateStruct>) updateFn) {
+    updateFn(teammates ??= []);
+  }
+
+  bool hasTeammates() => _teammates != null;
+
+  // "lat" field.
+  double? _lat;
+  double get lat => _lat ?? 0.0;
+  set lat(double? val) => _lat = val;
+
+  void incrementLat(double amount) => lat = lat + amount;
+
+  bool hasLat() => _lat != null;
+
+  // "long" field.
+  double? _long;
+  double get long => _long ?? 0.0;
+  set long(double? val) => _long = val;
+
+  void incrementLong(double amount) => long = long + amount;
+
+  bool hasLong() => _long != null;
+
+  // "locationAddress" field.
+  String? _locationAddress;
+  String get locationAddress => _locationAddress ?? '';
+  set locationAddress(String? val) => _locationAddress = val;
+
+  bool hasLocationAddress() => _locationAddress != null;
+
+  // "province" field.
+  ProvinceStruct? _province;
+  ProvinceStruct get province => _province ?? ProvinceStruct();
+  set province(ProvinceStruct? val) => _province = val;
+
+  void updateProvince(Function(ProvinceStruct) updateFn) {
+    updateFn(province ??= ProvinceStruct());
+  }
+
+  bool hasProvince() => _province != null;
 
   static ProfileStruct fromMap(Map<String, dynamic> data) => ProfileStruct(
         firstName: data['firstName'] as String?,
@@ -64,8 +124,18 @@ class ProfileStruct extends BaseStruct {
         participantType:
             ParticipantStruct.maybeFromMap(data['participantType']),
         address: data['address'] as String?,
-        biteName: data['biteName'] as String?,
-        biteCount: data['biteCount'] as String?,
+        userBites: getStructList(
+          data['user_bites'],
+          UserBiteStruct.fromMap,
+        ),
+        teammates: getStructList(
+          data['teammates'],
+          TeammateStruct.fromMap,
+        ),
+        lat: castToType<double>(data['lat']),
+        long: castToType<double>(data['long']),
+        locationAddress: data['locationAddress'] as String?,
+        province: ProvinceStruct.maybeFromMap(data['province']),
       );
 
   static ProfileStruct? maybeFromMap(dynamic data) =>
@@ -76,8 +146,12 @@ class ProfileStruct extends BaseStruct {
         'lastName': _lastName,
         'participantType': _participantType?.toMap(),
         'address': _address,
-        'biteName': _biteName,
-        'biteCount': _biteCount,
+        'user_bites': _userBites?.map((e) => e.toMap()).toList(),
+        'teammates': _teammates?.map((e) => e.toMap()).toList(),
+        'lat': _lat,
+        'long': _long,
+        'locationAddress': _locationAddress,
+        'province': _province?.toMap(),
       }.withoutNulls;
 
   @override
@@ -98,13 +172,31 @@ class ProfileStruct extends BaseStruct {
           _address,
           ParamType.String,
         ),
-        'biteName': serializeParam(
-          _biteName,
+        'user_bites': serializeParam(
+          _userBites,
+          ParamType.DataStruct,
+          isList: true,
+        ),
+        'teammates': serializeParam(
+          _teammates,
+          ParamType.DataStruct,
+          isList: true,
+        ),
+        'lat': serializeParam(
+          _lat,
+          ParamType.double,
+        ),
+        'long': serializeParam(
+          _long,
+          ParamType.double,
+        ),
+        'locationAddress': serializeParam(
+          _locationAddress,
           ParamType.String,
         ),
-        'biteCount': serializeParam(
-          _biteCount,
-          ParamType.String,
+        'province': serializeParam(
+          _province,
+          ParamType.DataStruct,
         ),
       }.withoutNulls;
 
@@ -131,15 +223,38 @@ class ProfileStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        biteName: deserializeParam(
-          data['biteName'],
+        userBites: deserializeStructParam<UserBiteStruct>(
+          data['user_bites'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: UserBiteStruct.fromSerializableMap,
+        ),
+        teammates: deserializeStructParam<TeammateStruct>(
+          data['teammates'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: TeammateStruct.fromSerializableMap,
+        ),
+        lat: deserializeParam(
+          data['lat'],
+          ParamType.double,
+          false,
+        ),
+        long: deserializeParam(
+          data['long'],
+          ParamType.double,
+          false,
+        ),
+        locationAddress: deserializeParam(
+          data['locationAddress'],
           ParamType.String,
           false,
         ),
-        biteCount: deserializeParam(
-          data['biteCount'],
-          ParamType.String,
+        province: deserializeStructParam(
+          data['province'],
+          ParamType.DataStruct,
           false,
+          structBuilder: ProvinceStruct.fromSerializableMap,
         ),
       );
 
@@ -148,18 +263,33 @@ class ProfileStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is ProfileStruct &&
         firstName == other.firstName &&
         lastName == other.lastName &&
         participantType == other.participantType &&
         address == other.address &&
-        biteName == other.biteName &&
-        biteCount == other.biteCount;
+        listEquality.equals(userBites, other.userBites) &&
+        listEquality.equals(teammates, other.teammates) &&
+        lat == other.lat &&
+        long == other.long &&
+        locationAddress == other.locationAddress &&
+        province == other.province;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [firstName, lastName, participantType, address, biteName, biteCount]);
+  int get hashCode => const ListEquality().hash([
+        firstName,
+        lastName,
+        participantType,
+        address,
+        userBites,
+        teammates,
+        lat,
+        long,
+        locationAddress,
+        province
+      ]);
 }
 
 ProfileStruct createProfileStruct({
@@ -167,14 +297,18 @@ ProfileStruct createProfileStruct({
   String? lastName,
   ParticipantStruct? participantType,
   String? address,
-  String? biteName,
-  String? biteCount,
+  double? lat,
+  double? long,
+  String? locationAddress,
+  ProvinceStruct? province,
 }) =>
     ProfileStruct(
       firstName: firstName,
       lastName: lastName,
       participantType: participantType ?? ParticipantStruct(),
       address: address,
-      biteName: biteName,
-      biteCount: biteCount,
+      lat: lat,
+      long: long,
+      locationAddress: locationAddress,
+      province: province ?? ProvinceStruct(),
     );

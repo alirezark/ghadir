@@ -20,24 +20,28 @@ class ParticipantStruct extends BaseStruct {
   String? _fullName;
   String get fullName => _fullName ?? '';
   set fullName(String? val) => _fullName = val;
+
   bool hasFullName() => _fullName != null;
 
   // "isAdult" field.
   bool? _isAdult;
   bool get isAdult => _isAdult ?? false;
   set isAdult(bool? val) => _isAdult = val;
+
   bool hasIsAdult() => _isAdult != null;
 
   // "gender" field.
   bool? _gender;
   bool get gender => _gender ?? false;
   set gender(bool? val) => _gender = val;
+
   bool hasGender() => _gender != null;
 
   // "type" field.
   bool? _type;
   bool get type => _type ?? false;
   set type(bool? val) => _type = val;
+
   bool hasType() => _type != null;
 
   static ParticipantStruct fromMap(Map<String, dynamic> data) =>

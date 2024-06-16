@@ -13,8 +13,11 @@ class ProvinceResponseStruct extends BaseStruct {
   List<ProvinceStruct>? _data;
   List<ProvinceStruct> get data => _data ?? const [];
   set data(List<ProvinceStruct>? val) => _data = val;
-  void updateData(Function(List<ProvinceStruct>) updateFn) =>
-      updateFn(_data ??= []);
+
+  void updateData(Function(List<ProvinceStruct>) updateFn) {
+    updateFn(data ??= []);
+  }
+
   bool hasData() => _data != null;
 
   static ProvinceResponseStruct fromMap(Map<String, dynamic> data) =>
@@ -38,7 +41,7 @@ class ProvinceResponseStruct extends BaseStruct {
         'data': serializeParam(
           _data,
           ParamType.DataStruct,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

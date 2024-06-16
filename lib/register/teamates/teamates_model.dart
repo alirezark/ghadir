@@ -9,6 +9,8 @@ class TeamatesModel extends FlutterFlowModel<TeamatesWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (get)] action in teamates widget.
+  ApiCallResponse? teammateProfileResult;
   // Model for RegisterHeader component.
   late RegisterHeaderModel registerHeaderModel;
   // Model for EmptyListsimple component.

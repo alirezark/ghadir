@@ -13,3 +13,4 @@ export 'province_struct.dart';
 export 'province_response_struct.dart';
 export 'teammate_struct.dart';
 export 'user_struct.dart';
+export 'user_bite_struct.dart';

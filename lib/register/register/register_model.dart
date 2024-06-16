@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/register_header/register_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'register_widget.dart' show RegisterWidget;
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,8 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - API (get)] action in register widget.
+  ApiCallResponse? apiResultvsf;
   // Model for RegisterHeader component.
   late RegisterHeaderModel registerHeaderModel;
   // State field(s) for firstName widget.
@@ -36,25 +37,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     return null;
   }
 
-  // State field(s) for bite widget.
-  int? biteValue;
-  FormFieldController<int>? biteValueController;
-  // State field(s) for bitName widget.
-  FocusNode? bitNameFocusNode;
-  TextEditingController? bitNameTextController;
-  String? Function(BuildContext, String?)? bitNameTextControllerValidator;
-  // State field(s) for biteCount widget.
-  FocusNode? biteCountFocusNode;
-  TextEditingController? biteCountTextController;
-  String? Function(BuildContext, String?)? biteCountTextControllerValidator;
-  String? _biteCountTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'تعداد لقمه را وارد کنید';
-    }
-
-    return null;
-  }
-
   // Stores action output result for [Backend Call - API (upsert)] action in Button widget.
   ApiCallResponse? apiResultx0c;
 
@@ -63,7 +45,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     registerHeaderModel = createModel(context, () => RegisterHeaderModel());
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
-    biteCountTextControllerValidator = _biteCountTextControllerValidator;
   }
 
   @override
@@ -75,11 +56,5 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
-
-    bitNameFocusNode?.dispose();
-    bitNameTextController?.dispose();
-
-    biteCountFocusNode?.dispose();
-    biteCountTextController?.dispose();
   }
 }

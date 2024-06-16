@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/empty_listsimple/empty_listsimple_widget.dart';
 import '/components/register_header/register_header_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/register/add_teamates_sheet/add_teamates_sheet_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +33,21 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TeamatesModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.teammateProfileResult = await ProfileGroup.getCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.teammateProfileResult?.succeeded ?? true)) {
+        FFAppState().teammates = ProfileStruct.maybeFromMap(
+                (_model.teammateProfileResult?.jsonBody ?? ''))!
+            .teammates
+            .toList()
+            .cast<TeammateStruct>();
+        setState(() {});
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

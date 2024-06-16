@@ -13,8 +13,11 @@ class BiteResponseStruct extends BaseStruct {
   List<BiteStruct>? _data;
   List<BiteStruct> get data => _data ?? const [];
   set data(List<BiteStruct>? val) => _data = val;
-  void updateData(Function(List<BiteStruct>) updateFn) =>
-      updateFn(_data ??= []);
+
+  void updateData(Function(List<BiteStruct>) updateFn) {
+    updateFn(data ??= []);
+  }
+
   bool hasData() => _data != null;
 
   static BiteResponseStruct fromMap(Map<String, dynamic> data) =>
@@ -38,7 +41,7 @@ class BiteResponseStruct extends BaseStruct {
         'data': serializeParam(
           _data,
           ParamType.DataStruct,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

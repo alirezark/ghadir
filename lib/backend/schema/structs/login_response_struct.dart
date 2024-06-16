@@ -15,14 +15,18 @@ class LoginResponseStruct extends BaseStruct {
   String? _jwt;
   String get jwt => _jwt ?? '';
   set jwt(String? val) => _jwt = val;
+
   bool hasJwt() => _jwt != null;
 
   // "user" field.
   UserStruct? _user;
   UserStruct get user => _user ?? UserStruct();
   set user(UserStruct? val) => _user = val;
-  void updateUser(Function(UserStruct) updateFn) =>
-      updateFn(_user ??= UserStruct());
+
+  void updateUser(Function(UserStruct) updateFn) {
+    updateFn(user ??= UserStruct());
+  }
+
   bool hasUser() => _user != null;
 
   static LoginResponseStruct fromMap(Map<String, dynamic> data) =>
