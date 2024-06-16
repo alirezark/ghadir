@@ -23,33 +23,41 @@ class LocalStruct extends BaseStruct {
   String? _address;
   String get address => _address ?? '';
   set address(String? val) => _address = val;
+
   bool hasAddress() => _address != null;
 
   // "lat" field.
   double? _lat;
   double get lat => _lat ?? 0.0;
   set lat(double? val) => _lat = val;
-  void incrementLat(double amount) => _lat = lat + amount;
+
+  void incrementLat(double amount) => lat = lat + amount;
+
   bool hasLat() => _lat != null;
 
   // "long" field.
   double? _long;
   double get long => _long ?? 0.0;
   set long(double? val) => _long = val;
-  void incrementLong(double amount) => _long = long + amount;
+
+  void incrementLong(double amount) => long = long + amount;
+
   bool hasLong() => _long != null;
 
   // "type" field.
   DeliveryType? _type;
   DeliveryType? get type => _type;
   set type(DeliveryType? val) => _type = val;
+
   bool hasType() => _type != null;
 
   // "id" field.
   int? _id;
   int get id => _id ?? 0;
   set id(int? val) => _id = val;
-  void incrementId(int amount) => _id = id + amount;
+
+  void incrementId(int amount) => id = id + amount;
+
   bool hasId() => _id != null;
 
   static LocalStruct fromMap(Map<String, dynamic> data) => LocalStruct(

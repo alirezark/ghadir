@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +37,20 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
     super.initState();
     _model = createModel(context, () => AddressFormModel());
 
-    _model.addressTextController ??= TextEditingController();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.profileAddressResult = await ProfileGroup.getCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.profileAddressResult?.succeeded ?? true)) {
+        FFAppState().profile = ProfileStruct.maybeFromMap(
+            (_model.profileAddressResult?.jsonBody ?? ''))!;
+        setState(() {});
+      }
+    });
+
+    _model.addressTextController ??=
+        TextEditingController(text: FFAppState().profile.address);
     _model.addressFocusNode ??= FocusNode();
 
     animationsMap.addAll({
@@ -144,7 +158,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                               ),
                             ),
                             Container(
-                              height: FFAppState().location.address != ''
+                              height: FFAppState().profile.locationAddress != ''
                                   ? 200.0
                                   : 400.0,
                               decoration: const BoxDecoration(),
@@ -158,16 +172,18 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                       height: double.infinity,
                                       onLocationSelect:
                                           (address, lat, long) async {
-                                        FFAppState().location = LocationStruct(
-                                          address: address,
-                                          lat: lat,
-                                          long: long,
+                                        FFAppState().updateProfileStruct(
+                                          (e) => e
+                                            ..lat = lat
+                                            ..long = long
+                                            ..locationAddress = address,
                                         );
                                         setState(() {});
                                       },
                                     ),
                                   ),
-                                  if (FFAppState().location.address != '')
+                                  if (FFAppState().profile.locationAddress !=
+                                          '')
                                     Container(
                                       width: double.infinity,
                                       height: double.infinity,
@@ -227,7 +243,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                 ],
                               ),
                             ),
-                            if (FFAppState().location.address != '')
+                            if (FFAppState().profile.locationAddress != '')
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
@@ -257,9 +273,15 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                         final provinceProvincesResponse =
                                             snapshot.data!;
                                         return FlutterFlowDropDown<int>(
-                                          controller: _model
-                                                  .provinceValueController ??=
-                                              FormFieldController<int>(null),
+                                          controller:
+                                              _model.provinceValueController ??=
+                                                  FormFieldController<int>(
+                                            _model.provinceValue ??=
+                                                FFAppState()
+                                                    .profile
+                                                    .province
+                                                    .id,
+                                          ),
                                           options: List<
                                               int>.from(ProvinceResponseStruct
                                                   .maybeFromMap(
@@ -369,7 +391,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                                     TextFormField(
                                       controller: _model.addressTextController,
                                       focusNode: _model.addressFocusNode,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'جزییات آدرس',
@@ -467,7 +489,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                       ),
                     ),
                   ),
-                  if (FFAppState().location.address != '')
+                  if (FFAppState().profile.locationAddress != '')
                     Container(
                       decoration: const BoxDecoration(),
                       child: Padding(
@@ -477,9 +499,10 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                           onPressed: () async {
                             _model.apiResultjfb =
                                 await ProfileGroup.upsertLocationCall.call(
-                              lat: FFAppState().location.lat,
-                              long: FFAppState().location.long,
-                              locationAddress: FFAppState().location.address,
+                              lat: FFAppState().profile.lat,
+                              long: FFAppState().profile.long,
+                              locationAddress:
+                                  FFAppState().profile.locationAddress,
                               address: _model.addressTextController.text,
                               jwt: currentAuthenticationToken,
                               province: _model.provinceValue?.toDouble(),

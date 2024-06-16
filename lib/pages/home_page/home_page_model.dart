@@ -16,12 +16,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ApiCallResponse? apiResultmvz;
   // State field(s) for Carousel_1 widget.
   CarouselController? carousel1Controller;
-
   int carousel1CurrentIndex = 1;
 
   // State field(s) for Carousel widget.
   CarouselController? carouselController;
-
   int carouselCurrentIndex = 1;
 
   @override

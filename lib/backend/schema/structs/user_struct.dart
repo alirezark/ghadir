@@ -16,13 +16,16 @@ class UserStruct extends BaseStruct {
   String? _mobile;
   String get mobile => _mobile ?? '';
   set mobile(String? val) => _mobile = val;
+
   bool hasMobile() => _mobile != null;
 
   // "id" field.
   int? _id;
   int get id => _id ?? 0;
   set id(int? val) => _id = val;
-  void incrementId(int amount) => _id = id + amount;
+
+  void incrementId(int amount) => id = id + amount;
+
   bool hasId() => _id != null;
 
   static UserStruct fromMap(Map<String, dynamic> data) => UserStruct(

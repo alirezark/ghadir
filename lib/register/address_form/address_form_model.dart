@@ -9,6 +9,8 @@ class AddressFormModel extends FlutterFlowModel<AddressFormWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (get)] action in addressForm widget.
+  ApiCallResponse? profileAddressResult;
   // Model for RegisterHeader component.
   late RegisterHeaderModel registerHeaderModel;
   // State field(s) for province widget.

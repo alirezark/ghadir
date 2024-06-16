@@ -24,37 +24,44 @@ class LocalTimeStruct extends BaseStruct {
   int? _id;
   int get id => _id ?? 0;
   set id(int? val) => _id = val;
-  void incrementId(int amount) => _id = id + amount;
+
+  void incrementId(int amount) => id = id + amount;
+
   bool hasId() => _id != null;
 
   // "from" field.
   String? _from;
   String get from => _from ?? '';
   set from(String? val) => _from = val;
+
   bool hasFrom() => _from != null;
 
   // "to" field.
   String? _to;
   String get to => _to ?? '';
   set to(String? val) => _to = val;
+
   bool hasTo() => _to != null;
 
   // "dateString" field.
   String? _dateString;
   String get dateString => _dateString ?? '';
   set dateString(String? val) => _dateString = val;
+
   bool hasDateString() => _dateString != null;
 
   // "date" field.
   String? _date;
   String get date => _date ?? '';
   set date(String? val) => _date = val;
+
   bool hasDate() => _date != null;
 
   // "timeString" field.
   String? _timeString;
   String get timeString => _timeString ?? '';
   set timeString(String? val) => _timeString = val;
+
   bool hasTimeString() => _timeString != null;
 
   static LocalTimeStruct fromMap(Map<String, dynamic> data) => LocalTimeStruct(

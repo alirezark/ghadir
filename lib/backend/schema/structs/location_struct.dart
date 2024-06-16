@@ -18,20 +18,25 @@ class LocationStruct extends BaseStruct {
   String? _address;
   String get address => _address ?? '';
   set address(String? val) => _address = val;
+
   bool hasAddress() => _address != null;
 
   // "lat" field.
   double? _lat;
   double get lat => _lat ?? 0.0;
   set lat(double? val) => _lat = val;
-  void incrementLat(double amount) => _lat = lat + amount;
+
+  void incrementLat(double amount) => lat = lat + amount;
+
   bool hasLat() => _lat != null;
 
   // "long" field.
   double? _long;
   double get long => _long ?? 0.0;
   set long(double? val) => _long = val;
-  void incrementLong(double amount) => _long = long + amount;
+
+  void incrementLong(double amount) => long = long + amount;
+
   bool hasLong() => _long != null;
 
   static LocationStruct fromMap(Map<String, dynamic> data) => LocationStruct(

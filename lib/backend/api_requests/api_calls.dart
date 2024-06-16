@@ -105,22 +105,19 @@ class UpsertCall {
   Future<ApiCallResponse> call({
     String? firstName = '',
     String? lastName = '',
-    int? bite,
-    String? biteName = '',
-    int? biteCount,
+    dynamic userBitesJson,
     String? jwt = '',
   }) async {
     final baseUrl = ProfileGroup.getBaseUrl(
       jwt: jwt,
     );
 
+    final userBites = _serializeJson(userBitesJson, true);
     final ffApiRequestBody = '''
 {
   "firstName": "$firstName",
   "lastName": "$lastName",
-  "bite": $bite,
-  "biteName": "$biteName",
-  "biteCount": $biteCount
+  "user_bites": $userBites
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'upsert',

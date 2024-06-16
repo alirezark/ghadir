@@ -23,30 +23,35 @@ class TeammateStruct extends BaseStruct {
   String? _fullName;
   String get fullName => _fullName ?? '';
   set fullName(String? val) => _fullName = val;
+
   bool hasFullName() => _fullName != null;
 
   // "isAdult" field.
   bool? _isAdult;
   bool get isAdult => _isAdult ?? false;
   set isAdult(bool? val) => _isAdult = val;
+
   bool hasIsAdult() => _isAdult != null;
 
   // "gender" field.
   Gender? _gender;
   Gender? get gender => _gender;
   set gender(Gender? val) => _gender = val;
+
   bool hasGender() => _gender != null;
 
   // "relation" field.
   Relation? _relation;
   Relation? get relation => _relation;
   set relation(Relation? val) => _relation = val;
+
   bool hasRelation() => _relation != null;
 
   // "mobile" field.
   String? _mobile;
   String get mobile => _mobile ?? '';
   set mobile(String? val) => _mobile = val;
+
   bool hasMobile() => _mobile != null;
 
   static TeammateStruct fromMap(Map<String, dynamic> data) => TeammateStruct(

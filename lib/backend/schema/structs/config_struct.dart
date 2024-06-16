@@ -26,42 +26,49 @@ class ConfigStruct extends BaseStruct {
   String? _homeCreatorMsgStep0;
   String get homeCreatorMsgStep0 => _homeCreatorMsgStep0 ?? '';
   set homeCreatorMsgStep0(String? val) => _homeCreatorMsgStep0 = val;
+
   bool hasHomeCreatorMsgStep0() => _homeCreatorMsgStep0 != null;
 
   // "home_share_pic1" field.
   String? _homeSharePic1;
   String get homeSharePic1 => _homeSharePic1 ?? '';
   set homeSharePic1(String? val) => _homeSharePic1 = val;
+
   bool hasHomeSharePic1() => _homeSharePic1 != null;
 
   // "home_share_pic2" field.
   String? _homeSharePic2;
   String get homeSharePic2 => _homeSharePic2 ?? '';
   set homeSharePic2(String? val) => _homeSharePic2 = val;
+
   bool hasHomeSharePic2() => _homeSharePic2 != null;
 
   // "home_share_video" field.
   String? _homeShareVideo;
   String get homeShareVideo => _homeShareVideo ?? '';
   set homeShareVideo(String? val) => _homeShareVideo = val;
+
   bool hasHomeShareVideo() => _homeShareVideo != null;
 
   // "activePhase2" field.
   bool? _activePhase2;
   bool get activePhase2 => _activePhase2 ?? false;
   set activePhase2(bool? val) => _activePhase2 = val;
+
   bool hasActivePhase2() => _activePhase2 != null;
 
   // "deliveryInfoText" field.
   String? _deliveryInfoText;
   String get deliveryInfoText => _deliveryInfoText ?? '';
   set deliveryInfoText(String? val) => _deliveryInfoText = val;
+
   bool hasDeliveryInfoText() => _deliveryInfoText != null;
 
   // "deliveryInfoVideo" field.
   String? _deliveryInfoVideo;
   String get deliveryInfoVideo => _deliveryInfoVideo ?? '';
   set deliveryInfoVideo(String? val) => _deliveryInfoVideo = val;
+
   bool hasDeliveryInfoVideo() => _deliveryInfoVideo != null;
 
   static ConfigStruct fromMap(Map<String, dynamic> data) => ConfigStruct(

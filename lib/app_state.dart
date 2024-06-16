@@ -52,26 +52,26 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToTeammates(TeammateStruct value) {
-    _teammates.add(value);
+    teammates.add(value);
   }
 
   void removeFromTeammates(TeammateStruct value) {
-    _teammates.remove(value);
+    teammates.remove(value);
   }
 
   void removeAtIndexFromTeammates(int index) {
-    _teammates.removeAt(index);
+    teammates.removeAt(index);
   }
 
   void updateTeammatesAtIndex(
     int index,
     TeammateStruct Function(TeammateStruct) updateFn,
   ) {
-    _teammates[index] = updateFn(_teammates[index]);
+    teammates[index] = updateFn(_teammates[index]);
   }
 
   void insertAtIndexInTeammates(int index, TeammateStruct value) {
-    _teammates.insert(index, value);
+    teammates.insert(index, value);
   }
 
   LocationStruct _location = LocationStruct();
@@ -81,10 +81,11 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateLocationStruct(Function(LocationStruct) updateFn) {
-    updateFn(_location);
+    updateFn(location);
   }
 
-  ProfileStruct _profile = ProfileStruct();
+  ProfileStruct _profile = ProfileStruct.fromSerializableMap(
+      jsonDecode('{\"participantType\":\"{}\",\"user_bites\":\"[]\"}'));
   ProfileStruct get profile => _profile;
   set profile(ProfileStruct value) {
     _profile = value;
@@ -92,7 +93,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateProfileStruct(Function(ProfileStruct) updateFn) {
-    updateFn(_profile);
+    updateFn(profile);
     prefs.setString('ff_profile', _profile.serialize());
   }
 
@@ -109,7 +110,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateConfigStruct(Function(ConfigStruct) updateFn) {
-    updateFn(_config);
+    updateFn(config);
   }
 
   DeliveryType? _deliveryType;
@@ -125,26 +126,26 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToLocalTimes(LocalTimeStruct value) {
-    _localTimes.add(value);
+    localTimes.add(value);
   }
 
   void removeFromLocalTimes(LocalTimeStruct value) {
-    _localTimes.remove(value);
+    localTimes.remove(value);
   }
 
   void removeAtIndexFromLocalTimes(int index) {
-    _localTimes.removeAt(index);
+    localTimes.removeAt(index);
   }
 
   void updateLocalTimesAtIndex(
     int index,
     LocalTimeStruct Function(LocalTimeStruct) updateFn,
   ) {
-    _localTimes[index] = updateFn(_localTimes[index]);
+    localTimes[index] = updateFn(_localTimes[index]);
   }
 
   void insertAtIndexInLocalTimes(int index, LocalTimeStruct value) {
-    _localTimes.insert(index, value);
+    localTimes.insert(index, value);
   }
 
   List<LocalTimeStruct> _localDates = [];
@@ -154,32 +155,61 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToLocalDates(LocalTimeStruct value) {
-    _localDates.add(value);
+    localDates.add(value);
   }
 
   void removeFromLocalDates(LocalTimeStruct value) {
-    _localDates.remove(value);
+    localDates.remove(value);
   }
 
   void removeAtIndexFromLocalDates(int index) {
-    _localDates.removeAt(index);
+    localDates.removeAt(index);
   }
 
   void updateLocalDatesAtIndex(
     int index,
     LocalTimeStruct Function(LocalTimeStruct) updateFn,
   ) {
-    _localDates[index] = updateFn(_localDates[index]);
+    localDates[index] = updateFn(_localDates[index]);
   }
 
   void insertAtIndexInLocalDates(int index, LocalTimeStruct value) {
-    _localDates.insert(index, value);
+    localDates.insert(index, value);
   }
 
   LatLng? _latlong = const LatLng(35.700875, 51.39126);
   LatLng? get latlong => _latlong;
   set latlong(LatLng? value) {
     _latlong = value;
+  }
+
+  List<UserBiteStruct> _userBites = [];
+  List<UserBiteStruct> get userBites => _userBites;
+  set userBites(List<UserBiteStruct> value) {
+    _userBites = value;
+  }
+
+  void addToUserBites(UserBiteStruct value) {
+    userBites.add(value);
+  }
+
+  void removeFromUserBites(UserBiteStruct value) {
+    userBites.remove(value);
+  }
+
+  void removeAtIndexFromUserBites(int index) {
+    userBites.removeAt(index);
+  }
+
+  void updateUserBitesAtIndex(
+    int index,
+    UserBiteStruct Function(UserBiteStruct) updateFn,
+  ) {
+    userBites[index] = updateFn(_userBites[index]);
+  }
+
+  void insertAtIndexInUserBites(int index, UserBiteStruct value) {
+    userBites.insert(index, value);
   }
 }
 
