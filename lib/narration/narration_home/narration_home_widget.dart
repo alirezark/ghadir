@@ -119,8 +119,10 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
                                 ),
                                 child: SizedBox(
                                   width: double.infinity,
+                                  height: 300.0,
                                   child: custom_widgets.CustomVidPlayer(
                                     width: double.infinity,
+                                    height: 300.0,
                                     videoPath:
                                         'https://ghadir-api.mardomi.org/uploads/VID_20240531_153328_557_6878824abb.mp4',
                                     playPauseVideoAction: false,
