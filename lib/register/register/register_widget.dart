@@ -560,18 +560,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                                                         size: 16.0,
                                                                                       ),
                                                                                       onPressed: () async {
-                                                                                        ScaffoldMessenger.of(context).showSnackBar(
-                                                                                          SnackBar(
-                                                                                            content: Text(
-                                                                                              biteListIndex.toString(),
-                                                                                              style: TextStyle(
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                              ),
-                                                                                            ),
-                                                                                            duration: const Duration(milliseconds: 4000),
-                                                                                            backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                          ),
-                                                                                        );
                                                                                         FFAppState().updateProfileStruct(
                                                                                           (e) => e
                                                                                             ..updateUserBites(
