@@ -7,8 +7,8 @@ COPY ./build/web /usr/share/nginx/html
 # Optionally, copy a custom Nginx configuration file
 # COPY default.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 80
+# production environment
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Start Nginx
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
