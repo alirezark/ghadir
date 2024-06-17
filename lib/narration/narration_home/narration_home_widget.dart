@@ -1,11 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/narration_header/narration_header_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,10 +21,13 @@ class NarrationHomeWidget extends StatefulWidget {
   State<NarrationHomeWidget> createState() => _NarrationHomeWidgetState();
 }
 
-class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
+class _NarrationHomeWidgetState extends State<NarrationHomeWidget>
+    with TickerProviderStateMixin {
   late NarrationHomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -37,6 +42,21 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
             ConfigStruct.maybeFromMap((_model.apiResult6i8?.jsonBody ?? ''))!;
         setState(() {});
       }
+    });
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -200,7 +220,8 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
                                 ),
                               ],
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.45,
                             height: 80.0,
@@ -300,7 +321,7 @@ class _NarrationHomeWidgetState extends State<NarrationHomeWidget> {
                                   size: 32.0,
                                 ),
                                 Text(
-                                  'ارسال آخر',
+                                  'ارسال صوت',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

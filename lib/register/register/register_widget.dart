@@ -10,6 +10,7 @@ import '/register/add_bite_sheet/add_bite_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.configResult = await BaseGroup.getConfigCall.call();
+      if ((_model.configResult?.succeeded ?? true)) {
+        FFAppState().config =
+            ConfigStruct.maybeFromMap((_model.configResult?.jsonBody ?? ''))!;
+        setState(() {});
+      }
       _model.apiResultvsf = await ProfileGroup.getCall.call(
         jwt: currentAuthenticationToken,
       );
@@ -133,6 +140,21 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .titleSmallFamily),
                                   ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: MarkdownBody(
+                                  data: FFAppState().config.registerDescription,
+                                  selectable: false,
+                                  onTapLink: (_, url, __) => launchURL(url!),
+                                ),
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(

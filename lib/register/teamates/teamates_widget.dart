@@ -11,6 +11,7 @@ import '/register/add_teamates_sheet/add_teamates_sheet_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -126,6 +127,21 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .titleLargeFamily),
                                 ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: MarkdownBody(
+                              data: FFAppState().config.teammateDescription,
+                              selectable: false,
+                              onTapLink: (_, url, __) => launchURL(url!),
+                            ),
                           ),
                         ),
                         Expanded(
@@ -448,22 +464,6 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
                                   jwt: currentAuthenticationToken,
                                 );
                                 if ((_model.apiResult7xo?.succeeded ?? true)) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'ثبت شد',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: const Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
-
                                   context.pushNamed('addressForm');
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(

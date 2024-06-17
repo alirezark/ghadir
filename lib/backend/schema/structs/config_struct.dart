@@ -14,13 +14,19 @@ class ConfigStruct extends BaseStruct {
     bool? activePhase2,
     String? deliveryInfoText,
     String? deliveryInfoVideo,
+    String? teammateDescription,
+    String? registerDescription,
+    String? addressDescription,
   })  : _homeCreatorMsgStep0 = homeCreatorMsgStep0,
         _homeSharePic1 = homeSharePic1,
         _homeSharePic2 = homeSharePic2,
         _homeShareVideo = homeShareVideo,
         _activePhase2 = activePhase2,
         _deliveryInfoText = deliveryInfoText,
-        _deliveryInfoVideo = deliveryInfoVideo;
+        _deliveryInfoVideo = deliveryInfoVideo,
+        _teammateDescription = teammateDescription,
+        _registerDescription = registerDescription,
+        _addressDescription = addressDescription;
 
   // "home_creator_msg_step0" field.
   String? _homeCreatorMsgStep0;
@@ -71,6 +77,27 @@ class ConfigStruct extends BaseStruct {
 
   bool hasDeliveryInfoVideo() => _deliveryInfoVideo != null;
 
+  // "teammateDescription" field.
+  String? _teammateDescription;
+  String get teammateDescription => _teammateDescription ?? '';
+  set teammateDescription(String? val) => _teammateDescription = val;
+
+  bool hasTeammateDescription() => _teammateDescription != null;
+
+  // "registerDescription" field.
+  String? _registerDescription;
+  String get registerDescription => _registerDescription ?? '';
+  set registerDescription(String? val) => _registerDescription = val;
+
+  bool hasRegisterDescription() => _registerDescription != null;
+
+  // "addressDescription" field.
+  String? _addressDescription;
+  String get addressDescription => _addressDescription ?? '';
+  set addressDescription(String? val) => _addressDescription = val;
+
+  bool hasAddressDescription() => _addressDescription != null;
+
   static ConfigStruct fromMap(Map<String, dynamic> data) => ConfigStruct(
         homeCreatorMsgStep0: data['home_creator_msg_step0'] as String?,
         homeSharePic1: data['home_share_pic1'] as String?,
@@ -79,6 +106,9 @@ class ConfigStruct extends BaseStruct {
         activePhase2: data['activePhase2'] as bool?,
         deliveryInfoText: data['deliveryInfoText'] as String?,
         deliveryInfoVideo: data['deliveryInfoVideo'] as String?,
+        teammateDescription: data['teammateDescription'] as String?,
+        registerDescription: data['registerDescription'] as String?,
+        addressDescription: data['addressDescription'] as String?,
       );
 
   static ConfigStruct? maybeFromMap(dynamic data) =>
@@ -92,6 +122,9 @@ class ConfigStruct extends BaseStruct {
         'activePhase2': _activePhase2,
         'deliveryInfoText': _deliveryInfoText,
         'deliveryInfoVideo': _deliveryInfoVideo,
+        'teammateDescription': _teammateDescription,
+        'registerDescription': _registerDescription,
+        'addressDescription': _addressDescription,
       }.withoutNulls;
 
   @override
@@ -122,6 +155,18 @@ class ConfigStruct extends BaseStruct {
         ),
         'deliveryInfoVideo': serializeParam(
           _deliveryInfoVideo,
+          ParamType.String,
+        ),
+        'teammateDescription': serializeParam(
+          _teammateDescription,
+          ParamType.String,
+        ),
+        'registerDescription': serializeParam(
+          _registerDescription,
+          ParamType.String,
+        ),
+        'addressDescription': serializeParam(
+          _addressDescription,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -163,6 +208,21 @@ class ConfigStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        teammateDescription: deserializeParam(
+          data['teammateDescription'],
+          ParamType.String,
+          false,
+        ),
+        registerDescription: deserializeParam(
+          data['registerDescription'],
+          ParamType.String,
+          false,
+        ),
+        addressDescription: deserializeParam(
+          data['addressDescription'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -177,7 +237,10 @@ class ConfigStruct extends BaseStruct {
         homeShareVideo == other.homeShareVideo &&
         activePhase2 == other.activePhase2 &&
         deliveryInfoText == other.deliveryInfoText &&
-        deliveryInfoVideo == other.deliveryInfoVideo;
+        deliveryInfoVideo == other.deliveryInfoVideo &&
+        teammateDescription == other.teammateDescription &&
+        registerDescription == other.registerDescription &&
+        addressDescription == other.addressDescription;
   }
 
   @override
@@ -188,7 +251,10 @@ class ConfigStruct extends BaseStruct {
         homeShareVideo,
         activePhase2,
         deliveryInfoText,
-        deliveryInfoVideo
+        deliveryInfoVideo,
+        teammateDescription,
+        registerDescription,
+        addressDescription
       ]);
 }
 
@@ -200,6 +266,9 @@ ConfigStruct createConfigStruct({
   bool? activePhase2,
   String? deliveryInfoText,
   String? deliveryInfoVideo,
+  String? teammateDescription,
+  String? registerDescription,
+  String? addressDescription,
 }) =>
     ConfigStruct(
       homeCreatorMsgStep0: homeCreatorMsgStep0,
@@ -209,4 +278,7 @@ ConfigStruct createConfigStruct({
       activePhase2: activePhase2,
       deliveryInfoText: deliveryInfoText,
       deliveryInfoVideo: deliveryInfoVideo,
+      teammateDescription: teammateDescription,
+      registerDescription: registerDescription,
+      addressDescription: addressDescription,
     );

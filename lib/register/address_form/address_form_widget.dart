@@ -12,6 +12,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'address_form_model.dart';
@@ -135,6 +136,21 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: MarkdownBody(
+                                  data: FFAppState().config.addressDescription,
+                                  selectable: false,
+                                  onTapLink: (_, url, __) => launchURL(url!),
+                                ),
+                              ),
+                            ),
                             Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
