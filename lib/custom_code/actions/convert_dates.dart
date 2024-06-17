@@ -15,7 +15,7 @@ import 'package:shamsi_date/shamsi_date.dart';
 
 String formatTime(String time) {
   // Define the input format
-  DateFormat inputFormat = DateFormat("HH:mm:ss.SSS");
+  DateFormat inputFormat = DateFormat("HH:mm:ss");
 
   // Parse the time string
   DateTime dateTime = inputFormat.parse(time);
@@ -40,6 +40,8 @@ Future<List<LocalTimeStruct>> convertDates(List<LocalTimeStruct> data) async {
     String date = data[i].date;
     String from = data[i].from;
     String to = data[i].to;
+    print('hererererere-----------');
+    print(date);
 
     // Convert the from and to dates to Jalali date strings
     final dateJalali = Jalali.fromDateTime(DateTime.parse(date)).formatter;

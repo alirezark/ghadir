@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/delivery_header/delivery_header_widget.dart';
+import '/components/narration_header/narration_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'narration_home_widget.dart' show NarrationHomeWidget;
 import 'package:flutter/material.dart';
@@ -10,17 +10,17 @@ class NarrationHomeModel extends FlutterFlowModel<NarrationHomeWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getConfig)] action in narrationHome widget.
   ApiCallResponse? apiResult6i8;
-  // Model for DeliveryHeader component.
-  late DeliveryHeaderModel deliveryHeaderModel;
+  // Model for NarrationHeader component.
+  late NarrationHeaderModel narrationHeaderModel;
 
   @override
   void initState(BuildContext context) {
-    deliveryHeaderModel = createModel(context, () => DeliveryHeaderModel());
+    narrationHeaderModel = createModel(context, () => NarrationHeaderModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    deliveryHeaderModel.dispose();
+    narrationHeaderModel.dispose();
   }
 }
