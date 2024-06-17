@@ -9,6 +9,8 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - API (getConfig)] action in register widget.
+  ApiCallResponse? configResult;
   // Stores action output result for [Backend Call - API (get)] action in register widget.
   ApiCallResponse? apiResultvsf;
   // Model for RegisterHeader component.
