@@ -18,3 +18,5 @@ export '/delivery/delivery_time/delivery_time_widget.dart'
 export '/delivery/revayat_info/revayat_info_widget.dart' show RevayatInfoWidget;
 export '/narration/narration_home/narration_home_widget.dart'
     show NarrationHomeWidget;
+export '/narration/narration_form/narration_form_widget.dart'
+    show NarrationFormWidget;

@@ -169,6 +169,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/narrationHome',
           requireAuth: true,
           builder: (context, params) => const NarrationHomeWidget(),
+        ),
+        FFRoute(
+          name: 'narrationForm',
+          path: '/narrationForm',
+          requireAuth: true,
+          builder: (context, params) => NarrationFormWidget(
+            type: params.getParam<DeliveryType>(
+              'type',
+              ParamType.Enum,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

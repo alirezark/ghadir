@@ -211,6 +211,36 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInUserBites(int index, UserBiteStruct value) {
     userBites.insert(index, value);
   }
+
+  bool _recording = false;
+  bool get recording => _recording;
+  set recording(bool value) {
+    _recording = value;
+  }
+
+  DateTime? _endTime;
+  DateTime? get endTime => _endTime;
+  set endTime(DateTime? value) {
+    _endTime = value;
+  }
+
+  String _file = '';
+  String get file => _file;
+  set file(String value) {
+    _file = value;
+  }
+
+  double _responseSent = 0.0;
+  double get responseSent => _responseSent;
+  set responseSent(double value) {
+    _responseSent = value;
+  }
+
+  DateTime? _startTime;
+  DateTime? get startTime => _startTime;
+  set startTime(DateTime? value) {
+    _startTime = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
