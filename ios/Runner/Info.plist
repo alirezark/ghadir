@@ -42,9 +42,10 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-
+	<key>NSMicrophoneUsageDescription</key>
+    <string>لطفا دسترسی به میکروفون</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>دسترسی به موقعیت مکانی</string>
+    <string>لطفا دسترسی موقعیت مکانی</string>
 
 
 	<key>UILaunchStoryboardName</key>
