@@ -81,7 +81,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateLocationStruct(Function(LocationStruct) updateFn) {
-    updateFn(location);
+    updateFn(_location);
   }
 
   ProfileStruct _profile = ProfileStruct.fromSerializableMap(
@@ -93,7 +93,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateProfileStruct(Function(ProfileStruct) updateFn) {
-    updateFn(profile);
+    updateFn(_profile);
     prefs.setString('ff_profile', _profile.serialize());
   }
 
@@ -110,7 +110,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateConfigStruct(Function(ConfigStruct) updateFn) {
-    updateFn(config);
+    updateFn(_config);
   }
 
   DeliveryType? _deliveryType;
@@ -212,34 +212,14 @@ class FFAppState extends ChangeNotifier {
     userBites.insert(index, value);
   }
 
-  bool _recording = false;
-  bool get recording => _recording;
-  set recording(bool value) {
-    _recording = value;
+  NarrationStepStruct _narrationStep = NarrationStepStruct();
+  NarrationStepStruct get narrationStep => _narrationStep;
+  set narrationStep(NarrationStepStruct value) {
+    _narrationStep = value;
   }
 
-  DateTime? _endTime;
-  DateTime? get endTime => _endTime;
-  set endTime(DateTime? value) {
-    _endTime = value;
-  }
-
-  String _file = '';
-  String get file => _file;
-  set file(String value) {
-    _file = value;
-  }
-
-  double _responseSent = 0.0;
-  double get responseSent => _responseSent;
-  set responseSent(double value) {
-    _responseSent = value;
-  }
-
-  DateTime? _startTime;
-  DateTime? get startTime => _startTime;
-  set startTime(DateTime? value) {
-    _startTime = value;
+  void updateNarrationStepStruct(Function(NarrationStepStruct) updateFn) {
+    updateFn(_narrationStep);
   }
 }
 

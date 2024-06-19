@@ -159,25 +159,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'revayatInfo',
-          path: '/revayatInfo',
-          requireAuth: true,
-          builder: (context, params) => const RevayatInfoWidget(),
-        ),
-        FFRoute(
           name: 'narrationHome',
           path: '/narrationHome',
           requireAuth: true,
           builder: (context, params) => const NarrationHomeWidget(),
         ),
         FFRoute(
-          name: 'narrationForm',
-          path: '/narrationForm',
+          name: 'narration',
+          path: '/narration',
           requireAuth: true,
-          builder: (context, params) => NarrationFormWidget(
-            type: params.getParam<DeliveryType>(
-              'type',
-              ParamType.Enum,
+          builder: (context, params) => NarrationWidget(
+            order: params.getParam(
+              'order',
+              ParamType.int,
             ),
           ),
         )

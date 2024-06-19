@@ -370,6 +370,7 @@ class _DeliverTypeWidgetState extends State<DeliverTypeWidget> {
                               deliveryType: FFAppState().deliveryType?.name,
                               jwt: currentAuthenticationToken,
                             );
+
                             if ((_model.apiResult4t0?.succeeded ?? true)) {
                               context.pushNamed(
                                 'deliveryTime',

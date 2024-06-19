@@ -43,6 +43,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
       _model.profileAddressResult = await ProfileGroup.getCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.profileAddressResult?.succeeded ?? true)) {
         FFAppState().profile = ProfileStruct.maybeFromMap(
             (_model.profileAddressResult?.jsonBody ?? ''))!;
@@ -523,6 +524,7 @@ class _AddressFormWidgetState extends State<AddressFormWidget>
                               jwt: currentAuthenticationToken,
                               province: _model.provinceValue?.toDouble(),
                             );
+
                             if ((_model.apiResultjfb?.succeeded ?? true)) {
                               context.pushNamed('HomePage');
                             } else {

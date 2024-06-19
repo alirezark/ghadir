@@ -45,6 +45,7 @@ class OtpCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -76,6 +77,7 @@ class LoginCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -133,6 +135,7 @@ class UpsertCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -173,6 +176,7 @@ class UpsertLocationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -205,6 +209,7 @@ class UpsertLocalTimeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -230,6 +235,7 @@ class GetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -262,6 +268,7 @@ class UpsertDeliveryTypeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -304,6 +311,7 @@ class ListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -349,6 +357,7 @@ class UpsertTeammateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -377,11 +386,14 @@ class ProvincesCall {
       apiUrl: '$baseUrl/provinces',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'pagination[pageSize]': 50,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -401,6 +413,7 @@ class GetConfigCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -424,6 +437,7 @@ class LocalsListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -455,6 +469,7 @@ class LocalTimesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -478,12 +493,191 @@ class LocalDateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
 }
 
 /// End base Group Code
+
+/// Start narration Group Code
+
+class NarrationGroup {
+  static String getBaseUrl({
+    String? jwt = '',
+  }) =>
+      'https://ghadir-api.mardomi.org/api';
+  static Map<String, String> headers = {
+    'Authorization': 'Bearer [jwt]',
+  };
+  static NarrationStepsCall narrationStepsCall = NarrationStepsCall();
+  static GetStepCall getStepCall = GetStepCall();
+  static CreateCall createCall = CreateCall();
+  static UploadCall uploadCall = UploadCall();
+  static CreateTextNarrationCall createTextNarrationCall =
+      CreateTextNarrationCall();
+}
+
+class NarrationStepsCall {
+  Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'narrationSteps',
+      apiUrl: '$baseUrl/narration-steps',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetStepCall {
+  Future<ApiCallResponse> call({
+    int? order,
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'getStep',
+      apiUrl: '$baseUrl/narration-steps/step/$order',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? videoUrl(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.video.url''',
+      ));
+}
+
+class CreateCall {
+  Future<ApiCallResponse> call({
+    int? file,
+    int? order,
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "file": $file,
+  "order": $order
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'create',
+      apiUrl: '$baseUrl/narration',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UploadCall {
+  Future<ApiCallResponse> call({
+    FFUploadedFile? file,
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'upload',
+      apiUrl: '$baseUrl/upload',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'files': file,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class CreateTextNarrationCall {
+  Future<ApiCallResponse> call({
+    String? text = '',
+    int? order,
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "text": "$text",
+  "order": $order
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'createTextNarration',
+      apiUrl: '$baseUrl/narration',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End narration Group Code
 
 class ApiPagingParams {
   int nextPageNumber = 0;

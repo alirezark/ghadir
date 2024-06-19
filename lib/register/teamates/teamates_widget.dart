@@ -40,6 +40,7 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
       _model.teammateProfileResult = await ProfileGroup.getCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.teammateProfileResult?.succeeded ?? true)) {
         FFAppState().teammates = ProfileStruct.maybeFromMap(
                 (_model.teammateProfileResult?.jsonBody ?? ''))!
@@ -463,6 +464,7 @@ class _TeamatesWidgetState extends State<TeamatesWidget> {
                                       .toList(),
                                   jwt: currentAuthenticationToken,
                                 );
+
                                 if ((_model.apiResult7xo?.succeeded ?? true)) {
                                   context.pushNamed('addressForm');
                                 } else {

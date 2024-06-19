@@ -37,6 +37,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.configResult = await BaseGroup.getConfigCall.call();
+
       if ((_model.configResult?.succeeded ?? true)) {
         FFAppState().config =
             ConfigStruct.maybeFromMap((_model.configResult?.jsonBody ?? ''))!;
@@ -45,6 +46,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       _model.apiResultvsf = await ProfileGroup.getCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiResultvsf?.succeeded ?? true)) {
         FFAppState().profile =
             ProfileStruct.maybeFromMap((_model.apiResultvsf?.jsonBody ?? ''))!;
@@ -738,6 +740,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 .map((e) => e.toMap())
                                 .toList(),
                           );
+
                           if ((_model.apiResultx0c?.succeeded ?? true)) {
                             context.pushNamed('teamates');
                           }
