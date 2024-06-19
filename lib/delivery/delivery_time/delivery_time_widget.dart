@@ -195,6 +195,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                             local:
                                                 _model.localValue?.toString(),
                                           );
+
                                           if ((_model.apiResultr7r?.succeeded ??
                                               true)) {
                                             _model.convertedLocalDates =
@@ -346,6 +347,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                           local: _model.localValue?.toString(),
                                           date: _model.dateValue,
                                         );
+
                                         if ((_model
                                                 .apiResultr7rCopy2?.succeeded ??
                                             true)) {
@@ -567,6 +569,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                             local: _model.walkLocalValue
                                                 ?.toString(),
                                           );
+
                                           if ((_model
                                                   .localTimeResult?.succeeded ??
                                               true)) {
@@ -785,6 +788,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                   : _model.walkTimeValue,
                               jwt: currentAuthenticationToken,
                             );
+
                             if ((_model.apiResultdie?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -795,13 +799,13 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: const Duration(milliseconds: 2000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
 
-                              context.pushNamed('revayatInfo');
+                              context.pushNamed('narration');
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

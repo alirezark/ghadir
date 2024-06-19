@@ -359,7 +359,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
-                                                textAlign: TextAlign.end,
+                                                textAlign: TextAlign.center,
                                                 maxLength: 11,
                                                 maxLengthEnforcement:
                                                     MaxLengthEnforcement
@@ -392,6 +392,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 mobile: _model
                                                     .phoneTextController.text,
                                               );
+
                                               if ((_model
                                                       .otpResult?.succeeded ??
                                                   true)) {

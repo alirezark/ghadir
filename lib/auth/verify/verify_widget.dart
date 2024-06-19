@@ -374,6 +374,7 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                       password: _model.codeTextController.text,
                                       mobile: widget.phone,
                                     );
+
                                     if ((_model.loginResult?.succeeded ??
                                         true)) {
                                       GoRouter.of(context).prepareAuthEvent();
@@ -492,6 +493,7 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                                 await AuthGroup.otpCall.call(
                                               mobile: widget.phone,
                                             );
+
                                             if ((_model.otpResult?.succeeded ??
                                                 true)) {
                                               ScaffoldMessenger.of(context)

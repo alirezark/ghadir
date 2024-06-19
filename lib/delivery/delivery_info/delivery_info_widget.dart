@@ -33,6 +33,7 @@ class _DeliveryInfoWidgetState extends State<DeliveryInfoWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.apiResult6i8 = await BaseGroup.getConfigCall.call();
+
       if ((_model.apiResult6i8?.succeeded ?? true)) {
         FFAppState().config =
             ConfigStruct.maybeFromMap((_model.apiResult6i8?.jsonBody ?? ''))!;

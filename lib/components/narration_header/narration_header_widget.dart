@@ -13,6 +13,7 @@ class NarrationHeaderWidget extends StatefulWidget {
     String? stepName,
     this.onBack,
     required this.hasBack,
+    this.totalStep,
   })  : step = step ?? 1,
         stepName = stepName ?? 'ثبت نام';
 
@@ -20,6 +21,7 @@ class NarrationHeaderWidget extends StatefulWidget {
   final String stepName;
   final Future Function()? onBack;
   final bool? hasBack;
+  final int? totalStep;
 
   @override
   State<NarrationHeaderWidget> createState() => _NarrationHeaderWidgetState();
@@ -101,46 +103,45 @@ class _NarrationHeaderWidgetState extends State<NarrationHeaderWidget> {
                 ),
               ],
             ),
-            if (widget.hasBack ?? true)
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(
-                        valueOrDefault<double>(
-                          widget.hasBack! ? 36.0 : 0.0,
-                          0.0,
-                        ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(
+                      valueOrDefault<double>(
+                        widget.hasBack! ? 36.0 : 0.0,
                         0.0,
-                        0.0,
-                        0.0),
-                    child: Text(
-                      'ثبت تحویل: ${widget.stepName}',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyMediumFamily),
-                          ),
-                    ),
-                  ),
-                  Text(
-                    'مرحله ${widget.step.toString()} از 4',
+                      ),
+                      0.0,
+                      0.0,
+                      0.0),
+                  child: Text(
+                    'ثبت روایت',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color:
+                              FlutterFlowTheme.of(context).primaryBackground,
                           letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
-                ],
-              ),
+                ),
+                Text(
+                  'مرحله ${widget.step.toString()} از ${widget.totalStep?.toString()}',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                      ),
+                ),
+              ],
+            ),
           ].divide(const SizedBox(height: 16.0)),
         ),
       ),

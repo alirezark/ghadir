@@ -21,6 +21,11 @@ enum DeliveryType {
   self,
 }
 
+enum NarrationType {
+  task,
+  info,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -40,6 +45,8 @@ T? deserializeEnum<T>(String? value) {
       return Relation.values.deserialize(value) as T?;
     case (DeliveryType):
       return DeliveryType.values.deserialize(value) as T?;
+    case (NarrationType):
+      return NarrationType.values.deserialize(value) as T?;
     default:
       return null;
   }
