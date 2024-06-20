@@ -207,6 +207,7 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                             maxWidth: 1024.00,
                                             maxHeight: 1024.00,
                                             allowPhoto: true,
+                                            allowVideo: true,
                                           );
                                           if (selectedMedia != null &&
                                               selectedMedia.every((m) =>
