@@ -6,21 +6,14 @@ import 'package:flutter/material.dart';
 class UploadSheetModel extends FlutterFlowModel<UploadSheetWidget> {
   ///  State fields for stateful widgets in this component.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (upload)] action in upload widget.
   ApiCallResponse? uploadVideoResult;
   // Stores action output result for [Backend Call - API (create)] action in upload widget.
   ApiCallResponse? createVideoNarration;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override
   void initState(BuildContext context) {}

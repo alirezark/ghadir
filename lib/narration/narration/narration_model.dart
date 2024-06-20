@@ -12,13 +12,6 @@ class NarrationModel extends FlutterFlowModel<NarrationWidget> {
   ApiCallResponse? apiResultsju;
   // Model for NarrationHeader component.
   late NarrationHeaderModel narrationHeaderModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override
   void initState(BuildContext context) {

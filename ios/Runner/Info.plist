@@ -42,12 +42,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-	<key>NSCameraUsageDescription</key>
-    <string>لطفا دسترسی به دوربین</string>
-	<key>NSMicrophoneUsageDescription</key>
-    <string>لطفا دسترسی به میکروفون</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>لطفا دسترسی به تصاویر</string>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>لطفا دسترسی موقعیت مکانی</string>
 
