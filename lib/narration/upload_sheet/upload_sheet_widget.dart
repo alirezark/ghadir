@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -202,27 +201,19 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                         ),
                                         showLoadingIndicator: true,
                                         onPressed: () async {
-                                          final selectedMedia =
-                                              await selectMediaWithSourceBottomSheet(
-                                            context: context,
-                                            maxWidth: 1024.00,
-                                            maxHeight: 1024.00,
-                                            allowPhoto: true,
-                                            allowVideo: true,
+                                          final selectedFiles =
+                                              await selectFiles(
+                                            multiFile: false,
                                           );
-                                          if (selectedMedia != null &&
-                                              selectedMedia.every((m) =>
-                                                  validateFileFormat(
-                                                      m.storagePath,
-                                                      context))) {
+                                          if (selectedFiles != null) {
                                             setState(() =>
-                                                _model.isDataUploading1 = true);
+                                                _model.isDataUploading = true);
                                             var selectedUploadedFiles =
                                                 <FFUploadedFile>[];
 
                                             try {
                                               selectedUploadedFiles =
-                                                  selectedMedia
+                                                  selectedFiles
                                                       .map(
                                                           (m) => FFUploadedFile(
                                                                 name: m
@@ -230,23 +221,15 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                                                     .split('/')
                                                                     .last,
                                                                 bytes: m.bytes,
-                                                                height: m
-                                                                    .dimensions
-                                                                    ?.height,
-                                                                width: m
-                                                                    .dimensions
-                                                                    ?.width,
-                                                                blurHash:
-                                                                    m.blurHash,
                                                               ))
                                                       .toList();
                                             } finally {
-                                              _model.isDataUploading1 = false;
+                                              _model.isDataUploading = false;
                                             }
                                             if (selectedUploadedFiles.length ==
-                                                selectedMedia.length) {
+                                                selectedFiles.length) {
                                               setState(() {
-                                                _model.uploadedLocalFile1 =
+                                                _model.uploadedLocalFile =
                                                     selectedUploadedFiles.first;
                                               });
                                             } else {
@@ -258,7 +241,7 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                           _model.uploadVideoResult =
                                               await NarrationGroup.uploadCall
                                                   .call(
-                                            file: _model.uploadedLocalFile1,
+                                            file: _model.uploadedLocalFile,
                                             jwt: currentAuthenticationToken,
                                           );
 
@@ -356,141 +339,6 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .titleMediumFamily),
                                     ),
-                              ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  final selectedFiles = await selectFiles(
-                                    allowedExtensions: ['pdf'],
-                                    multiFile: false,
-                                  );
-                                  if (selectedFiles != null) {
-                                    setState(
-                                        () => _model.isDataUploading2 = true);
-                                    var selectedUploadedFiles =
-                                        <FFUploadedFile>[];
-
-                                    try {
-                                      selectedUploadedFiles = selectedFiles
-                                          .map((m) => FFUploadedFile(
-                                                name: m.storagePath
-                                                    .split('/')
-                                                    .last,
-                                                bytes: m.bytes,
-                                              ))
-                                          .toList();
-                                    } finally {
-                                      _model.isDataUploading2 = false;
-                                    }
-                                    if (selectedUploadedFiles.length ==
-                                        selectedFiles.length) {
-                                      setState(() {
-                                        _model.uploadedLocalFile2 =
-                                            selectedUploadedFiles.first;
-                                      });
-                                    } else {
-                                      setState(() {});
-                                      return;
-                                    }
-                                  }
-                                },
-                                text: 'file',
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleSmallFamily,
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily),
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  final selectedMedia =
-                                      await selectMediaWithSourceBottomSheet(
-                                    context: context,
-                                    allowPhoto: true,
-                                  );
-                                  if (selectedMedia != null &&
-                                      selectedMedia.every((m) =>
-                                          validateFileFormat(
-                                              m.storagePath, context))) {
-                                    setState(
-                                        () => _model.isDataUploading3 = true);
-                                    var selectedUploadedFiles =
-                                        <FFUploadedFile>[];
-
-                                    try {
-                                      selectedUploadedFiles = selectedMedia
-                                          .map((m) => FFUploadedFile(
-                                                name: m.storagePath
-                                                    .split('/')
-                                                    .last,
-                                                bytes: m.bytes,
-                                                height: m.dimensions?.height,
-                                                width: m.dimensions?.width,
-                                                blurHash: m.blurHash,
-                                              ))
-                                          .toList();
-                                    } finally {
-                                      _model.isDataUploading3 = false;
-                                    }
-                                    if (selectedUploadedFiles.length ==
-                                        selectedMedia.length) {
-                                      setState(() {
-                                        _model.uploadedLocalFile3 =
-                                            selectedUploadedFiles.first;
-                                      });
-                                    } else {
-                                      setState(() {});
-                                      return;
-                                    }
-                                  }
-                                },
-                                text: 'media',
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleSmallFamily,
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily),
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
                               ),
                             ].divide(const SizedBox(height: 8.0)),
                           ),
