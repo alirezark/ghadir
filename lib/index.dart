@@ -4,7 +4,8 @@ export '/auth/login/login_widget.dart' show LoginWidget;
 export '/auth/verify/verify_widget.dart' show VerifyWidget;
 export '/template/details06_subscription_payment/details06_subscription_payment_widget.dart'
     show Details06SubscriptionPaymentWidget;
-export '/delivery/deliver_type/deliver_type_widget.dart' show DeliverTypeWidget;
+export '/delivery/delivery_type/delivery_type_widget.dart'
+    show DeliveryTypeWidget;
 export '/template/tab/tab_widget.dart' show TabWidget;
 export '/template/create05_patient_intake/create05_patient_intake_widget.dart'
     show Create05PatientIntakeWidget;
@@ -18,3 +19,8 @@ export '/delivery/delivery_time/delivery_time_widget.dart'
 export '/narration/narration_home/narration_home_widget.dart'
     show NarrationHomeWidget;
 export '/narration/narration/narration_widget.dart' show NarrationWidget;
+export '/pages/share/share_widget.dart' show ShareWidget;
+export '/narration/narration_result/narration_result_widget.dart'
+    show NarrationResultWidget;
+export '/delivery/delivery_location/delivery_location_widget.dart'
+    show DeliveryLocationWidget;

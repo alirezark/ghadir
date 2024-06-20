@@ -109,9 +109,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const Details06SubscriptionPaymentWidget(),
         ),
         FFRoute(
-          name: 'deliverType',
-          path: '/deliverType',
-          builder: (context, params) => const DeliverTypeWidget(),
+          name: 'deliveryType',
+          path: '/deliveryType',
+          requireAuth: true,
+          builder: (context, params) => DeliveryTypeWidget(
+            editing: params.getParam(
+              'editing',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: 'Tab',
@@ -156,6 +162,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'type',
               ParamType.Enum,
             ),
+            editing: params.getParam(
+              'editing',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
@@ -172,6 +182,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             order: params.getParam(
               'order',
               ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'share',
+          path: '/share',
+          requireAuth: true,
+          builder: (context, params) => const ShareWidget(),
+        ),
+        FFRoute(
+          name: 'narrationResult',
+          path: '/narrationResult',
+          requireAuth: true,
+          builder: (context, params) => const NarrationResultWidget(),
+        ),
+        FFRoute(
+          name: 'deliveryLocation',
+          path: '/deliverLocation',
+          requireAuth: true,
+          builder: (context, params) => DeliveryLocationWidget(
+            editing: params.getParam(
+              'editing',
+              ParamType.bool,
             ),
           ),
         )

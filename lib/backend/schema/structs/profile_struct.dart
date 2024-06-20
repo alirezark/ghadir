@@ -16,6 +16,10 @@ class ProfileStruct extends BaseStruct {
     double? long,
     String? locationAddress,
     ProvinceStruct? province,
+    String? deliveryType,
+    int? currentNarration,
+    String? uid,
+    String? qrcode,
   })  : _firstName = firstName,
         _lastName = lastName,
         _participantType = participantType,
@@ -25,7 +29,11 @@ class ProfileStruct extends BaseStruct {
         _lat = lat,
         _long = long,
         _locationAddress = locationAddress,
-        _province = province;
+        _province = province,
+        _deliveryType = deliveryType,
+        _currentNarration = currentNarration,
+        _uid = uid,
+        _qrcode = qrcode;
 
   // "firstName" field.
   String? _firstName;
@@ -118,6 +126,37 @@ class ProfileStruct extends BaseStruct {
 
   bool hasProvince() => _province != null;
 
+  // "deliveryType" field.
+  String? _deliveryType;
+  String get deliveryType => _deliveryType ?? '';
+  set deliveryType(String? val) => _deliveryType = val;
+
+  bool hasDeliveryType() => _deliveryType != null;
+
+  // "currentNarration" field.
+  int? _currentNarration;
+  int get currentNarration => _currentNarration ?? 0;
+  set currentNarration(int? val) => _currentNarration = val;
+
+  void incrementCurrentNarration(int amount) =>
+      currentNarration = currentNarration + amount;
+
+  bool hasCurrentNarration() => _currentNarration != null;
+
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  set uid(String? val) => _uid = val;
+
+  bool hasUid() => _uid != null;
+
+  // "qrcode" field.
+  String? _qrcode;
+  String get qrcode => _qrcode ?? '';
+  set qrcode(String? val) => _qrcode = val;
+
+  bool hasQrcode() => _qrcode != null;
+
   static ProfileStruct fromMap(Map<String, dynamic> data) => ProfileStruct(
         firstName: data['firstName'] as String?,
         lastName: data['lastName'] as String?,
@@ -136,6 +175,10 @@ class ProfileStruct extends BaseStruct {
         long: castToType<double>(data['long']),
         locationAddress: data['locationAddress'] as String?,
         province: ProvinceStruct.maybeFromMap(data['province']),
+        deliveryType: data['deliveryType'] as String?,
+        currentNarration: castToType<int>(data['currentNarration']),
+        uid: data['uid'] as String?,
+        qrcode: data['qrcode'] as String?,
       );
 
   static ProfileStruct? maybeFromMap(dynamic data) =>
@@ -152,6 +195,10 @@ class ProfileStruct extends BaseStruct {
         'long': _long,
         'locationAddress': _locationAddress,
         'province': _province?.toMap(),
+        'deliveryType': _deliveryType,
+        'currentNarration': _currentNarration,
+        'uid': _uid,
+        'qrcode': _qrcode,
       }.withoutNulls;
 
   @override
@@ -197,6 +244,22 @@ class ProfileStruct extends BaseStruct {
         'province': serializeParam(
           _province,
           ParamType.DataStruct,
+        ),
+        'deliveryType': serializeParam(
+          _deliveryType,
+          ParamType.String,
+        ),
+        'currentNarration': serializeParam(
+          _currentNarration,
+          ParamType.int,
+        ),
+        'uid': serializeParam(
+          _uid,
+          ParamType.String,
+        ),
+        'qrcode': serializeParam(
+          _qrcode,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -256,6 +319,26 @@ class ProfileStruct extends BaseStruct {
           false,
           structBuilder: ProvinceStruct.fromSerializableMap,
         ),
+        deliveryType: deserializeParam(
+          data['deliveryType'],
+          ParamType.String,
+          false,
+        ),
+        currentNarration: deserializeParam(
+          data['currentNarration'],
+          ParamType.int,
+          false,
+        ),
+        uid: deserializeParam(
+          data['uid'],
+          ParamType.String,
+          false,
+        ),
+        qrcode: deserializeParam(
+          data['qrcode'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -274,7 +357,11 @@ class ProfileStruct extends BaseStruct {
         lat == other.lat &&
         long == other.long &&
         locationAddress == other.locationAddress &&
-        province == other.province;
+        province == other.province &&
+        deliveryType == other.deliveryType &&
+        currentNarration == other.currentNarration &&
+        uid == other.uid &&
+        qrcode == other.qrcode;
   }
 
   @override
@@ -288,7 +375,11 @@ class ProfileStruct extends BaseStruct {
         lat,
         long,
         locationAddress,
-        province
+        province,
+        deliveryType,
+        currentNarration,
+        uid,
+        qrcode
       ]);
 }
 
@@ -301,6 +392,10 @@ ProfileStruct createProfileStruct({
   double? long,
   String? locationAddress,
   ProvinceStruct? province,
+  String? deliveryType,
+  int? currentNarration,
+  String? uid,
+  String? qrcode,
 }) =>
     ProfileStruct(
       firstName: firstName,
@@ -311,4 +406,8 @@ ProfileStruct createProfileStruct({
       long: long,
       locationAddress: locationAddress,
       province: province ?? ProvinceStruct(),
+      deliveryType: deliveryType,
+      currentNarration: currentNarration,
+      uid: uid,
+      qrcode: qrcode,
     );

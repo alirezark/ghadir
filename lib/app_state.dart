@@ -221,6 +221,41 @@ class FFAppState extends ChangeNotifier {
   void updateNarrationStepStruct(Function(NarrationStepStruct) updateFn) {
     updateFn(_narrationStep);
   }
+
+  List<NarrationStruct> _narrations = [];
+  List<NarrationStruct> get narrations => _narrations;
+  set narrations(List<NarrationStruct> value) {
+    _narrations = value;
+  }
+
+  void addToNarrations(NarrationStruct value) {
+    narrations.add(value);
+  }
+
+  void removeFromNarrations(NarrationStruct value) {
+    narrations.remove(value);
+  }
+
+  void removeAtIndexFromNarrations(int index) {
+    narrations.removeAt(index);
+  }
+
+  void updateNarrationsAtIndex(
+    int index,
+    NarrationStruct Function(NarrationStruct) updateFn,
+  ) {
+    narrations[index] = updateFn(_narrations[index]);
+  }
+
+  void insertAtIndexInNarrations(int index, NarrationStruct value) {
+    narrations.insert(index, value);
+  }
+
+  int _deliveryLocation = 1;
+  int get deliveryLocation => _deliveryLocation;
+  set deliveryLocation(int value) {
+    _deliveryLocation = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

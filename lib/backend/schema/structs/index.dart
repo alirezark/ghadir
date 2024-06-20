@@ -7,6 +7,7 @@ export 'local_struct.dart';
 export 'local_time_struct.dart';
 export 'location_struct.dart';
 export 'login_response_struct.dart';
+export 'narration_struct.dart';
 export 'narration_step_struct.dart';
 export 'participant_struct.dart';
 export 'profile_struct.dart';

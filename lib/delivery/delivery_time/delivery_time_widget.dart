@@ -20,9 +20,11 @@ class DeliveryTimeWidget extends StatefulWidget {
   const DeliveryTimeWidget({
     super.key,
     required this.type,
+    this.editing,
   });
 
   final DeliveryType? type;
+  final bool? editing;
 
   @override
   State<DeliveryTimeWidget> createState() => _DeliveryTimeWidgetState();
@@ -99,7 +101,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                       stepName: 'انتخاب مکان',
                       hasBack: true,
                       onBack: () async {
-                        context.pushNamed('deliverType');
+                        context.pushNamed('deliveryType');
                       },
                     ),
                   ),
@@ -793,7 +795,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                    'ثبت شد',
+                                    'نحوه ارسال ثبت شد',
                                     style: TextStyle(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -804,8 +806,11 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
-
-                              context.pushNamed('narration');
+                              if (widget.editing == true) {
+                                context.pushNamed('HomePage');
+                              } else {
+                                context.pushNamed('narration');
+                              }
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
