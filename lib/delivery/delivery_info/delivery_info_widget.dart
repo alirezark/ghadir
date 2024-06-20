@@ -148,7 +148,7 @@ class _DeliveryInfoWidgetState extends State<DeliveryInfoWidget> {
                       decoration: const BoxDecoration(),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('deliverType');
+                          context.pushNamed('deliveryLocation');
                         },
                         text: 'یا علی',
                         options: FFButtonOptions(

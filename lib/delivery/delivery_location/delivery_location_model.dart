@@ -1,10 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/delivery_header/delivery_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'deliver_type_widget.dart' show DeliverTypeWidget;
+import 'delivery_location_widget.dart' show DeliveryLocationWidget;
 import 'package:flutter/material.dart';
 
-class DeliverTypeModel extends FlutterFlowModel<DeliverTypeWidget> {
+class DeliveryLocationModel extends FlutterFlowModel<DeliveryLocationWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

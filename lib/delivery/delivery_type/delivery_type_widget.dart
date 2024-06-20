@@ -8,25 +8,30 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'deliver_type_model.dart';
-export 'deliver_type_model.dart';
+import 'delivery_type_model.dart';
+export 'delivery_type_model.dart';
 
-class DeliverTypeWidget extends StatefulWidget {
-  const DeliverTypeWidget({super.key});
+class DeliveryTypeWidget extends StatefulWidget {
+  const DeliveryTypeWidget({
+    super.key,
+    this.editing,
+  });
+
+  final bool? editing;
 
   @override
-  State<DeliverTypeWidget> createState() => _DeliverTypeWidgetState();
+  State<DeliveryTypeWidget> createState() => _DeliveryTypeWidgetState();
 }
 
-class _DeliverTypeWidgetState extends State<DeliverTypeWidget> {
-  late DeliverTypeModel _model;
+class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
+  late DeliveryTypeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DeliverTypeModel());
+    _model = createModel(context, () => DeliveryTypeModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -352,6 +357,22 @@ class _DeliverTypeWidgetState extends State<DeliverTypeWidget> {
                             ),
                           ),
                         ),
+                        Text(
+                          valueOrDefault<String>(
+                            FFAppState().deliveryType?.name,
+                            '1',
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
+                        ),
                       ].divide(const SizedBox(height: 16.0)),
                     ),
                   ),
@@ -367,19 +388,45 @@ class _DeliverTypeWidgetState extends State<DeliverTypeWidget> {
                           onPressed: () async {
                             _model.apiResult4t0 =
                                 await ProfileGroup.upsertDeliveryTypeCall.call(
-                              deliveryType: FFAppState().deliveryType?.name,
+                              deliveryType:
+                                  (FFAppState().deliveryType == null) ||
+                                          (FFAppState().deliveryType ==
+                                              DeliveryType.self)
+                                      ? DeliveryType.self.name
+                                      : FFAppState().deliveryType?.name,
                               jwt: currentAuthenticationToken,
                             );
 
                             if ((_model.apiResult4t0?.succeeded ?? true)) {
-                              context.pushNamed(
-                                'deliveryTime',
-                                queryParameters: {
-                                  'type': serializeParam(
-                                    FFAppState().deliveryType,
-                                    ParamType.Enum,
+                              if ((FFAppState().deliveryType == null) ||
+                                  (FFAppState().deliveryType ==
+                                      DeliveryType.self)) {
+                                context.pushNamed('narration');
+                              } else {
+                                context.pushNamed(
+                                  'deliveryTime',
+                                  queryParameters: {
+                                    'type': serializeParam(
+                                      FFAppState().deliveryType,
+                                      ParamType.Enum,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              }
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'وقوع خطا',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                                   ),
-                                }.withoutNulls,
+                                  duration: const Duration(milliseconds: 3000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).error,
+                                ),
                               );
                             }
 

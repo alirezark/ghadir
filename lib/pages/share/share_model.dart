@@ -2,27 +2,18 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/bottom_nav/bottom_nav_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/instant_timer.dart';
-import 'home_page_widget.dart' show HomePageWidget;
-import 'package:carousel_slider/carousel_slider.dart';
+import 'share_widget.dart' show ShareWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class ShareModel extends FlutterFlowModel<ShareWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (getConfig)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (getConfig)] action in share widget.
   ApiCallResponse? apiResult6i8;
   InstantTimer? instantTimer;
-  // Stores action output result for [Backend Call - API (get)] action in HomePage widget.
+  // Stores action output result for [Backend Call - API (get)] action in share widget.
   ApiCallResponse? apiResultmvz;
-  // State field(s) for Carousel_1 widget.
-  CarouselController? carousel1Controller;
-  int carousel1CurrentIndex = 1;
-
-  // State field(s) for Carousel widget.
-  CarouselController? carouselController;
-  int carouselCurrentIndex = 1;
-
   // Model for bottomNav component.
   late BottomNavModel bottomNavModel;
 

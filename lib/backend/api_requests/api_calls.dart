@@ -517,6 +517,7 @@ class NarrationGroup {
   static UploadCall uploadCall = UploadCall();
   static CreateTextNarrationCall createTextNarrationCall =
       CreateTextNarrationCall();
+  static ResultCall resultCall = ResultCall();
 }
 
 class NarrationStepsCall {
@@ -667,6 +668,32 @@ class CreateTextNarrationCall {
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ResultCall {
+  Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    final baseUrl = NarrationGroup.getBaseUrl(
+      jwt: jwt,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'result',
+      apiUrl: '$baseUrl/narrations',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
