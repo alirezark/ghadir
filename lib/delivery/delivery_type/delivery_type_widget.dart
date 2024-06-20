@@ -357,22 +357,6 @@ class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
                             ),
                           ),
                         ),
-                        Text(
-                          valueOrDefault<String>(
-                            FFAppState().deliveryType?.name,
-                            '1',
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
-                              ),
-                        ),
                       ].divide(const SizedBox(height: 16.0)),
                     ),
                   ),
