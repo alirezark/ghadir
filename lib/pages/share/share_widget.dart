@@ -211,7 +211,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Text(
-                                    FFAppState().profile.uid,
+                                    'http://story.ghadiryar.ir/${FFAppState().profile.uid}',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -299,23 +299,6 @@ class _ShareWidgetState extends State<ShareWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                            ),
-                            Text(
-                              getJsonField(
-                                FFAppState().profile.toMap(),
-                                r'''$.qrcode''',
-                              ).toString(),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
-                                  ),
                             ),
                           ].divide(const SizedBox(height: 8.0)),
                         ),
