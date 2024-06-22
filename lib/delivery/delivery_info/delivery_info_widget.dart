@@ -149,7 +149,7 @@ class _DeliveryInfoWidgetState extends State<DeliveryInfoWidget> {
                         onPressed: () async {
                           context.pushNamed('deliveryLocation');
                         },
-                        text: 'یا علی',
+                        text: 'مرحله بعد',
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 40.0,
