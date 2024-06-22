@@ -780,14 +780,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  if (!((FFAppState()
+                                                  if ((FFAppState()
                                                               .config
                                                               .activePhase2 ==
                                                           true) &&
                                                       (FFAppState()
                                                                   .profile
                                                                   .deliveryType ==
-                                                              '')))
+                                                              ''))
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
