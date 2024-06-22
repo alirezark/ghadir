@@ -184,7 +184,7 @@ class UpsertLocationCall {
 
 class UpsertLocalTimeCall {
   Future<ApiCallResponse> call({
-    int? localTime,
+    int? local,
     String? jwt = '',
   }) async {
     final baseUrl = ProfileGroup.getBaseUrl(
@@ -193,7 +193,7 @@ class UpsertLocalTimeCall {
 
     final ffApiRequestBody = '''
 {
-  "localTime": $localTime
+  "local": $local
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'upsertLocalTime',

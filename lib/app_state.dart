@@ -256,6 +256,16 @@ class FFAppState extends ChangeNotifier {
   set deliveryLocation(int value) {
     _deliveryLocation = value;
   }
+
+  LocalStruct _selectedLocal = LocalStruct();
+  LocalStruct get selectedLocal => _selectedLocal;
+  set selectedLocal(LocalStruct value) {
+    _selectedLocal = value;
+  }
+
+  void updateSelectedLocalStruct(Function(LocalStruct) updateFn) {
+    updateFn(_selectedLocal);
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -128,7 +128,6 @@ class _DeliveryInfoWidgetState extends State<DeliveryInfoWidget> {
                             ),
                             Container(
                               width: double.infinity,
-                              height: 100.0,
                               decoration: const BoxDecoration(),
                               child: MarkdownBody(
                                 data: FFAppState().config.deliveryInfoText,

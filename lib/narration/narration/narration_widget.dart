@@ -42,6 +42,8 @@ class _NarrationWidgetState extends State<NarrationWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().narrationStep = NarrationStepStruct();
+      setState(() {});
       _model.apiResultsju = await NarrationGroup.getStepCall.call(
         jwt: currentAuthenticationToken,
         order: widget.order,
@@ -120,7 +122,7 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                             'narration',
                             queryParameters: {
                               'order': serializeParam(
-                                widget.order,
+                                widget.order - 1,
                                 ParamType.int,
                               ),
                             }.withoutNulls,
@@ -140,6 +142,21 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            Text(
+                              FFAppState().narrationStep.title,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
+                                  ),
+                            ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(16.0),
                               child: Container(
@@ -169,19 +186,6 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                 selectable: true,
                                 onTapLink: (_, url, __) => launchURL(url!),
                               ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                ),
-                              ].divide(const SizedBox(height: 16.0)),
                             ),
                           ].divide(const SizedBox(height: 16.0)),
                         ),

@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/upload_dialog_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -184,88 +185,139 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
+                                      Builder(
+                                        builder: (context) =>
+                                            FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          borderRadius: 120.0,
+                                          borderWidth: 6.0,
+                                          buttonSize: 120.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          icon: Icon(
+                                            Icons.file_upload_outlined,
+                                            color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                        borderRadius: 120.0,
-                                        borderWidth: 6.0,
-                                        buttonSize: 120.0,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        icon: Icon(
-                                          Icons.file_upload_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 44.0,
-                                        ),
-                                        showLoadingIndicator: true,
-                                        onPressed: () async {
-                                          final selectedFiles =
-                                              await selectFiles(
-                                            multiFile: false,
-                                          );
-                                          if (selectedFiles != null) {
-                                            setState(() =>
-                                                _model.isDataUploading = true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
+                                            size: 44.0,
+                                          ),
+                                          showLoadingIndicator: true,
+                                          onPressed: () async {
+                                            final selectedFiles =
+                                                await selectFiles(
+                                              multiFile: false,
+                                            );
+                                            if (selectedFiles != null) {
+                                              setState(() => _model
+                                                  .isDataUploading = true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
 
-                                            try {
-                                              selectedUploadedFiles =
-                                                  selectedFiles
-                                                      .map(
-                                                          (m) => FFUploadedFile(
-                                                                name: m
-                                                                    .storagePath
-                                                                    .split('/')
-                                                                    .last,
-                                                                bytes: m.bytes,
-                                                              ))
-                                                      .toList();
-                                            } finally {
-                                              _model.isDataUploading = false;
+                                              try {
+                                                selectedUploadedFiles =
+                                                    selectedFiles
+                                                        .map((m) =>
+                                                            FFUploadedFile(
+                                                              name: m
+                                                                  .storagePath
+                                                                  .split('/')
+                                                                  .last,
+                                                              bytes: m.bytes,
+                                                            ))
+                                                        .toList();
+                                              } finally {
+                                                _model.isDataUploading = false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                      .length ==
+                                                  selectedFiles.length) {
+                                                setState(() {
+                                                  _model.uploadedLocalFile =
+                                                      selectedUploadedFiles
+                                                          .first;
+                                                });
+                                              } else {
+                                                setState(() {});
+                                                return;
+                                              }
                                             }
-                                            if (selectedUploadedFiles.length ==
-                                                selectedFiles.length) {
-                                              setState(() {
-                                                _model.uploadedLocalFile =
-                                                    selectedUploadedFiles.first;
-                                              });
-                                            } else {
-                                              setState(() {});
-                                              return;
-                                            }
-                                          }
 
-                                          _model.uploadVideoResult =
-                                              await NarrationGroup.uploadCall
-                                                  .call(
-                                            file: _model.uploadedLocalFile,
-                                            jwt: currentAuthenticationToken,
-                                          );
+                                            await showDialog(
+                                              barrierDismissible: false,
+                                              context: context,
+                                              builder: (dialogContext) {
+                                                return Dialog(
+                                                  elevation: 0,
+                                                  insetPadding: EdgeInsets.zero,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                              0.0, 0.0)
+                                                          .resolve(
+                                                              Directionality.of(
+                                                                  context)),
+                                                  child: const SizedBox(
+                                                    height: 150.0,
+                                                    width: 300.0,
+                                                    child: UploadDialogWidget(),
+                                                  ),
+                                                );
+                                              },
+                                            ).then((value) => setState(() {}));
 
-                                          if ((_model.uploadVideoResult
-                                                  ?.succeeded ??
-                                              true)) {
-                                            _model.createVideoNarration =
-                                                await NarrationGroup.createCall
+                                            _model.uploadVideoResult =
+                                                await NarrationGroup.uploadCall
                                                     .call(
-                                              file: getJsonField(
-                                                (_model.uploadVideoResult
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$[0].id''',
-                                              ),
+                                              file: _model.uploadedLocalFile,
                                               jwt: currentAuthenticationToken,
-                                              order: widget.order,
                                             );
 
-                                            if ((_model.createVideoNarration
+                                            if ((_model.uploadVideoResult
                                                     ?.succeeded ??
                                                 true)) {
-                                              await widget.handleSucceed
-                                                  ?.call();
+                                              _model.createVideoNarration =
+                                                  await NarrationGroup
+                                                      .createCall
+                                                      .call(
+                                                file: getJsonField(
+                                                  (_model.uploadVideoResult
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$[0].id''',
+                                                ),
+                                                jwt: currentAuthenticationToken,
+                                                order: widget.order,
+                                              );
+
+                                              if ((_model.createVideoNarration
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                await widget.handleSucceed
+                                                    ?.call();
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'وقوع خطا',
+                                                      style: TextStyle(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .error,
+                                                  ),
+                                                );
+                                              }
                                             } else {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
@@ -279,7 +331,7 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                                     ),
                                                   ),
                                                   duration: const Duration(
-                                                      milliseconds: 4000),
+                                                      milliseconds: 3050),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -287,29 +339,12 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                                 ),
                                               );
                                             }
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'وقوع خطا',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                  ),
-                                                ),
-                                                duration: const Duration(
-                                                    milliseconds: 3050),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                              ),
-                                            );
-                                          }
 
-                                          setState(() {});
-                                        },
+                                            Navigator.pop(context);
+
+                                            setState(() {});
+                                          },
+                                        ),
                                       ),
                                     ],
                                   ),
