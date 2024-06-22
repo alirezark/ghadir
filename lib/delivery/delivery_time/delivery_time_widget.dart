@@ -564,7 +564,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                         ),
                                   ),
                                   Text(
-                                    'در روز پیاده روی، تعداد زیادی غرفه با نام و نشان لقمه میلیونی در مسیر پیاده منتظر دریافت لقمه های شما هستند.',
+                                    'در روز پیاده روی، تعداد زیادی غرفه با نام و نشان لقمه میلیونی در مسیر جشن  پیاده روی ده کیلومتری منتظر دریافت لقمه های شما هستند.',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -579,7 +579,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget> {
                                         ),
                                   ),
                                   Text(
-                                    'شما می توانید لقمه های خود را در روز عید غدیر به این مراکز تحویل دهدی',
+                                    'شما می توانید لقمه های خود را در روز عید غدیر به این مراکز تحویل دهید',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(

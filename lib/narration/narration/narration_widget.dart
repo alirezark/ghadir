@@ -244,10 +244,10 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                                     type: 'image',
                                                     order: widget.order,
                                                     handleSucceed: () async {
-                                                      if (FFAppState()
+                                                      if (widget.order <
+                                                          FFAppState()
                                                               .narrationStep
-                                                              .totalSteps <
-                                                          widget.order) {
+                                                              .totalSteps) {
                                                         context.pushNamed(
                                                           'narration',
                                                           queryParameters: {
@@ -354,10 +354,10 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                                     type: 'video',
                                                     order: widget.order,
                                                     handleSucceed: () async {
-                                                      if (FFAppState()
+                                                      if (widget.order <
+                                                          FFAppState()
                                                               .narrationStep
-                                                              .totalSteps <
-                                                          widget.order) {
+                                                              .totalSteps) {
                                                         context.pushNamed(
                                                           'narration',
                                                           queryParameters: {
@@ -463,10 +463,10 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                                   child: TextSheetWidget(
                                                     order: widget.order,
                                                     handleSucceed: () async {
-                                                      if (FFAppState()
+                                                      if (widget.order <
+                                                          FFAppState()
                                                               .narrationStep
-                                                              .totalSteps <
-                                                          widget.order) {
+                                                              .totalSteps) {
                                                         context.pushNamed(
                                                           'narration',
                                                           queryParameters: {
@@ -501,6 +501,7 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                             color: const Color(0xFFCCCCCC),
+                                            width: 2.0,
                                           ),
                                         ),
                                         child: Column(
@@ -573,10 +574,10 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                                     type: 'audio',
                                                     order: widget.order,
                                                     handleSucceed: () async {
-                                                      if (FFAppState()
+                                                      if (widget.order <
+                                                          FFAppState()
                                                               .narrationStep
-                                                              .totalSteps <
-                                                          widget.order) {
+                                                              .totalSteps) {
                                                         context.pushNamed(
                                                           'narration',
                                                           queryParameters: {
