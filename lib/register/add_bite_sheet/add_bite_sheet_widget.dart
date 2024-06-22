@@ -569,6 +569,13 @@ class _AddBiteSheetWidgetState extends State<AddBiteSheetWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
+                        }
+                        if (_model.biteValue == null) {
+                          return;
+                        }
                         FFAppState().updateProfileStruct(
                           (e) => e
                             ..updateUserBites(

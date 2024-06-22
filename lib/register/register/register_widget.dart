@@ -722,61 +722,62 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-                    child: Container(
-                      decoration: const BoxDecoration(),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          _model.apiResultx0c =
-                              await ProfileGroup.upsertCall.call(
-                            firstName: _model.firstNameTextController.text,
-                            lastName: _model.lastNameTextController.text,
-                            jwt: currentAuthenticationToken,
-                            userBitesJson: FFAppState()
-                                .profile
-                                .userBites
-                                .map((e) => e.toMap())
-                                .toList(),
-                          );
+                  if (FFAppState().profile.userBites.isNotEmpty)
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                      child: Container(
+                        decoration: const BoxDecoration(),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            _model.apiResultx0c =
+                                await ProfileGroup.upsertCall.call(
+                              firstName: _model.firstNameTextController.text,
+                              lastName: _model.lastNameTextController.text,
+                              jwt: currentAuthenticationToken,
+                              userBitesJson: FFAppState()
+                                  .profile
+                                  .userBites
+                                  .map((e) => e.toMap())
+                                  .toList(),
+                            );
 
-                          if ((_model.apiResultx0c?.succeeded ?? true)) {
-                            context.pushNamed('teamates');
-                          }
+                            if ((_model.apiResultx0c?.succeeded ?? true)) {
+                              context.pushNamed('teamates');
+                            }
 
-                          setState(() {});
-                        },
-                        text: 'مرحله بعد',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
-                              ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            setState(() {});
+                          },
+                          text: 'مرحله بعد',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleSmallFamily),
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),
-                  ),
                 ].divide(const SizedBox(height: 16.0)),
               ),
             ),

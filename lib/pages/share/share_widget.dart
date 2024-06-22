@@ -139,103 +139,76 @@ class _ShareWidgetState extends State<ShareWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'لینک روایت',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleLargeFamily,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .titleLargeFamily),
-                                  ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: const BoxDecoration(),
-                                child: Text(
-                                  'اجرتون با مولا',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLargeFamily),
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Text(
-                                'بعد از آماده کردن و بسته‌بندی لقمه‌ها، کدی که پایین براتون نوشته شده رو روی یه کاغذ بنویسید و به لقمه‌هاتون بچسبونید. البته بهتره فایلی که براتون تهیه شده رو پرینت کنید و اون رو بر روی لقمه‌ها بچسبونید.\n',
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'لینک روایت',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
+                                    .titleLarge
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyLargeFamily,
+                                          .titleLargeFamily,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyLargeFamily),
+                                                  .titleLargeFamily),
                                     ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: const BoxDecoration(),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: const BoxDecoration(),
+                                  child: Text(
+                                    'اجرتون با مولا',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLargeFamily,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLargeFamily),
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
                                 child: Text(
-                                  'لینک روایت:',
-                                  textAlign: TextAlign.start,
+                                  'بعد از آماده کردن و بسته‌بندی لقمه‌ها، کدی که پایین براتون نوشته شده رو روی یه کاغذ بنویسید و به لقمه‌هاتون بچسبونید. البته بهتره فایلی که براتون تهیه شده رو پرینت کنید و اون رو بر روی لقمه‌ها بچسبونید.\n',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                      .bodyLarge
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                            .bodyLargeFamily,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
+                                                    .bodyLargeFamily),
                                       ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: const BoxDecoration(),
                                   child: Text(
-                                    'https://story.ghadiryar.ir/s/${FFAppState().profile.uid}',
+                                    'لینک روایت:',
+                                    textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -243,6 +216,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
@@ -251,79 +225,110 @@ class _ShareWidgetState extends State<ShareWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: const BoxDecoration(),
-                                child: Text(
-                                  'کد QR:',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      'https://story.ghadiryar.ir/s/${FFAppState().profile.uid}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: const BoxDecoration(),
+                                  child: Text(
+                                    'کد QR:',
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  FFAppState().profile.qrcode,
+                                  width: 300.0,
+                                  height: 300.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  await launchURL((String uid) {
+                                    return "https://ghadir-api.mardomi.org/api/qr/$uid";
+                                  }(FFAppState().profile.uid));
+                                },
+                                text: 'دریافت',
+                                icon: const Icon(
+                                  Icons.qr_code_sharp,
+                                  size: 15.0,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                            .titleSmallFamily,
+                                        color: Colors.white,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
+                                                    .titleSmallFamily),
                                       ),
+                                  elevation: 3.0,
+                                  borderSide: const BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.network(
-                                FFAppState().profile.qrcode,
-                                width: 300.0,
-                                height: 300.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                await launchURL((String uid) {
-                                  return "https://ghadir-api.mardomi.org/api/qr/$uid";
-                                }(FFAppState().profile.uid));
-                              },
-                              text: 'دریافت',
-                              icon: const Icon(
-                                Icons.qr_code_sharp,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
-                                    ),
-                                elevation: 3.0,
-                                borderSide: const BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ].divide(const SizedBox(height: 8.0)),
+                            ].divide(const SizedBox(height: 8.0)),
+                          ),
                         ),
                       ),
                     ),
