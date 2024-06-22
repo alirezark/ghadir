@@ -212,7 +212,7 @@ class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 24.0, 0.0),
                                       child: Text(
-                                        'در یه روز و ساعت مشخص، لقمه ها رو می برم به مرکز مشخص تحویل می دم',
+                                        'لقمه ها رو در روز دوشنبه یا سه شنبه به مراکز محلی تحویل خواهم داد',
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -289,7 +289,7 @@ class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'تحویل در پیاده روی',
+                                                'تحویل در مهمانی 10 کیلومتری',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall
@@ -334,7 +334,7 @@ class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 24.0, 0.0),
                                       child: Text(
-                                        'خودم در روز پیاده روی لقمه ها رو میارم و تحویل به غرفه می دم',
+                                        'خودم در روز جشن از ساعت 17 تا 22  لقمه ها رو میارم و تحویل به غرفه های لقمه میلیونی می دم',
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(

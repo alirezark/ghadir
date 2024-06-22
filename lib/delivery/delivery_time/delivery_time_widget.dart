@@ -142,7 +142,32 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget>
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 8.0, 0.0),
                                       child: Text(
-                                        'لطفا آدرس تحویل را انتخاب کنید:',
+                                        'شما می بایست لقمه های خود را در روز دوشنبه از ساعت 18 تا 23 و سه شنبه (روز عید غدیر) از ساعت 6 تا 11 به مرکز انتخابی تحویل خواهم داد',
+                                        textAlign: TextAlign.justify,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLargeFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLargeFamily),
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 8.0, 0.0),
+                                      child: Text(
+                                        'لطفا مرکز تحویل را انتخاب کنید:',
                                         textAlign: TextAlign.justify,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
