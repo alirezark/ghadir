@@ -42,6 +42,8 @@ class _NarrationWidgetState extends State<NarrationWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().narrationStep = NarrationStepStruct();
+      setState(() {});
       _model.apiResultsju = await NarrationGroup.getStepCall.call(
         jwt: currentAuthenticationToken,
         order: widget.order,
@@ -120,7 +122,7 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                             'narration',
                             queryParameters: {
                               'order': serializeParam(
-                                widget.order,
+                                widget.order - 1,
                                 ParamType.int,
                               ),
                             }.withoutNulls,

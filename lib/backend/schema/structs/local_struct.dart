@@ -13,11 +13,17 @@ class LocalStruct extends BaseStruct {
     double? long,
     DeliveryType? type,
     int? id,
+    String? name,
+    String? ownerName,
+    String? phone,
   })  : _address = address,
         _lat = lat,
         _long = long,
         _type = type,
-        _id = id;
+        _id = id,
+        _name = name,
+        _ownerName = ownerName,
+        _phone = phone;
 
   // "address" field.
   String? _address;
@@ -60,12 +66,36 @@ class LocalStruct extends BaseStruct {
 
   bool hasId() => _id != null;
 
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  set name(String? val) => _name = val;
+
+  bool hasName() => _name != null;
+
+  // "ownerName" field.
+  String? _ownerName;
+  String get ownerName => _ownerName ?? '';
+  set ownerName(String? val) => _ownerName = val;
+
+  bool hasOwnerName() => _ownerName != null;
+
+  // "phone" field.
+  String? _phone;
+  String get phone => _phone ?? '';
+  set phone(String? val) => _phone = val;
+
+  bool hasPhone() => _phone != null;
+
   static LocalStruct fromMap(Map<String, dynamic> data) => LocalStruct(
         address: data['address'] as String?,
         lat: castToType<double>(data['lat']),
         long: castToType<double>(data['long']),
         type: deserializeEnum<DeliveryType>(data['type']),
         id: castToType<int>(data['id']),
+        name: data['name'] as String?,
+        ownerName: data['ownerName'] as String?,
+        phone: data['phone'] as String?,
       );
 
   static LocalStruct? maybeFromMap(dynamic data) =>
@@ -77,6 +107,9 @@ class LocalStruct extends BaseStruct {
         'long': _long,
         'type': _type?.serialize(),
         'id': _id,
+        'name': _name,
+        'ownerName': _ownerName,
+        'phone': _phone,
       }.withoutNulls;
 
   @override
@@ -100,6 +133,18 @@ class LocalStruct extends BaseStruct {
         'id': serializeParam(
           _id,
           ParamType.int,
+        ),
+        'name': serializeParam(
+          _name,
+          ParamType.String,
+        ),
+        'ownerName': serializeParam(
+          _ownerName,
+          ParamType.String,
+        ),
+        'phone': serializeParam(
+          _phone,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -130,6 +175,21 @@ class LocalStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        name: deserializeParam(
+          data['name'],
+          ParamType.String,
+          false,
+        ),
+        ownerName: deserializeParam(
+          data['ownerName'],
+          ParamType.String,
+          false,
+        ),
+        phone: deserializeParam(
+          data['phone'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -142,11 +202,15 @@ class LocalStruct extends BaseStruct {
         lat == other.lat &&
         long == other.long &&
         type == other.type &&
-        id == other.id;
+        id == other.id &&
+        name == other.name &&
+        ownerName == other.ownerName &&
+        phone == other.phone;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([address, lat, long, type, id]);
+  int get hashCode => const ListEquality()
+      .hash([address, lat, long, type, id, name, ownerName, phone]);
 }
 
 LocalStruct createLocalStruct({
@@ -155,6 +219,9 @@ LocalStruct createLocalStruct({
   double? long,
   DeliveryType? type,
   int? id,
+  String? name,
+  String? ownerName,
+  String? phone,
 }) =>
     LocalStruct(
       address: address,
@@ -162,4 +229,7 @@ LocalStruct createLocalStruct({
       long: long,
       type: type,
       id: id,
+      name: name,
+      ownerName: ownerName,
+      phone: phone,
     );
