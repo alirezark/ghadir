@@ -211,7 +211,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Text(
-                                    'http://story.ghadiryar.ir/${FFAppState().profile.uid}',
+                                    'https://story.ghadiryar.ir/s/${FFAppState().profile.uid}',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

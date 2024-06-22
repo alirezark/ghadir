@@ -170,19 +170,6 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                 onTapLink: (_, url, __) => launchURL(url!),
                               ),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                ),
-                              ].divide(const SizedBox(height: 16.0)),
-                            ),
                           ].divide(const SizedBox(height: 16.0)),
                         ),
                       ),
