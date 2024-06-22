@@ -263,10 +263,9 @@ class _ShareWidgetState extends State<ShareWidget> {
                             ),
                             FFButtonWidget(
                               onPressed: () async {
-                                await launchURL(getJsonField(
-                                  FFAppState().profile.toMap(),
-                                  r'''$.qrcode''',
-                                ).toString());
+                                await launchURL((String uid) {
+                                  return "https://ghadir-api.mardomi.org/api/qr/$uid";
+                                }(FFAppState().profile.uid));
                               },
                               text: 'دریافت',
                               icon: const Icon(
