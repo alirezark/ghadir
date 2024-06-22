@@ -21,6 +21,7 @@ class NarrationStepStruct extends BaseStruct {
     bool? hasVideo,
     String? hint,
     int? totalSteps,
+    String? title,
   })  : _id = id,
         _description = description,
         _order = order,
@@ -33,7 +34,8 @@ class NarrationStepStruct extends BaseStruct {
         _hasAudio = hasAudio,
         _hasVideo = hasVideo,
         _hint = hint,
-        _totalSteps = totalSteps;
+        _totalSteps = totalSteps,
+        _title = title;
 
   // "id" field.
   int? _id;
@@ -132,6 +134,13 @@ class NarrationStepStruct extends BaseStruct {
 
   bool hasTotalSteps() => _totalSteps != null;
 
+  // "title" field.
+  String? _title;
+  String get title => _title ?? '';
+  set title(String? val) => _title = val;
+
+  bool hasTitle() => _title != null;
+
   static NarrationStepStruct fromMap(Map<String, dynamic> data) =>
       NarrationStepStruct(
         id: castToType<int>(data['id']),
@@ -147,6 +156,7 @@ class NarrationStepStruct extends BaseStruct {
         hasVideo: data['hasVideo'] as bool?,
         hint: data['hint'] as String?,
         totalSteps: castToType<int>(data['totalSteps']),
+        title: data['title'] as String?,
       );
 
   static NarrationStepStruct? maybeFromMap(dynamic data) => data is Map
@@ -167,6 +177,7 @@ class NarrationStepStruct extends BaseStruct {
         'hasVideo': _hasVideo,
         'hint': _hint,
         'totalSteps': _totalSteps,
+        'title': _title,
       }.withoutNulls;
 
   @override
@@ -222,6 +233,10 @@ class NarrationStepStruct extends BaseStruct {
         'totalSteps': serializeParam(
           _totalSteps,
           ParamType.int,
+        ),
+        'title': serializeParam(
+          _title,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -292,6 +307,11 @@ class NarrationStepStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        title: deserializeParam(
+          data['title'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -312,7 +332,8 @@ class NarrationStepStruct extends BaseStruct {
         hasAudio == other.hasAudio &&
         hasVideo == other.hasVideo &&
         hint == other.hint &&
-        totalSteps == other.totalSteps;
+        totalSteps == other.totalSteps &&
+        title == other.title;
   }
 
   @override
@@ -329,7 +350,8 @@ class NarrationStepStruct extends BaseStruct {
         hasAudio,
         hasVideo,
         hint,
-        totalSteps
+        totalSteps,
+        title
       ]);
 }
 
@@ -347,6 +369,7 @@ NarrationStepStruct createNarrationStepStruct({
   bool? hasVideo,
   String? hint,
   int? totalSteps,
+  String? title,
 }) =>
     NarrationStepStruct(
       id: id,
@@ -362,4 +385,5 @@ NarrationStepStruct createNarrationStepStruct({
       hasVideo: hasVideo,
       hint: hint,
       totalSteps: totalSteps,
+      title: title,
     );
