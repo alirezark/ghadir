@@ -501,6 +501,7 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                             color: const Color(0xFFCCCCCC),
+                                            width: 2.0,
                                           ),
                                         ),
                                         child: Column(

@@ -244,7 +244,7 @@ class _UploadSheetWidgetState extends State<UploadSheetWidget> {
                                               }
                                             }
 
-                                            await showDialog(
+                                            showDialog(
                                               barrierDismissible: false,
                                               context: context,
                                               builder: (dialogContext) {

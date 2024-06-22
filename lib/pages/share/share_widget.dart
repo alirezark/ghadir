@@ -158,9 +158,33 @@ class _ShareWidgetState extends State<ShareWidget> {
                                   ),
                             ),
                             Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: const BoxDecoration(),
+                                child: Text(
+                                  'اجرتون با مولا',
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleLargeFamily,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLargeFamily),
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Text(
-                                'برای به اشتراک گذاری روایت خود می توانید لینک زیر را برو لقمه خود نوشته یا کد qr زیر رو پرینت گرفته و کنار هر لقمه قرار دهید',
+                                'بعد از آماده کردن و بسته‌بندی لقمه‌ها، کدی که پایین براتون نوشته شده رو روی یه کاغذ بنویسید و به لقمه‌هاتون بچسبونید. البته بهتره فایلی که براتون تهیه شده رو پرینت کنید و اون رو بر روی لقمه‌ها بچسبونید.\n',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
