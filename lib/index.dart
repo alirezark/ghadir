@@ -24,3 +24,5 @@ export '/narration/narration_result/narration_result_widget.dart'
     show NarrationResultWidget;
 export '/delivery/delivery_location/delivery_location_widget.dart'
     show DeliveryLocationWidget;
+export '/narration/start_narration/start_narration_widget.dart'
+    show StartNarrationWidget;

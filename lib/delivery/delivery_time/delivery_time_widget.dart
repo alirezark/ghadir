@@ -637,7 +637,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget>
                               if (widget.editing == true) {
                                 context.pushNamed('HomePage');
                               } else {
-                                context.pushNamed('narration');
+                                context.pushNamed('startNarration');
                               }
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -659,7 +659,7 @@ class _DeliveryTimeWidgetState extends State<DeliveryTimeWidget>
                             if (widget.editing == true) {
                               context.pushNamed('HomePage');
                             } else {
-                              context.pushNamed('narration');
+                              context.pushNamed('startNarration');
                             }
                           }
 
