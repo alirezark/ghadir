@@ -187,7 +187,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Text(
-                                  'بعد از آماده کردن و بسته‌بندی لقمه‌ها، کدی که پایین براتون نوشته شده رو روی یه کاغذ بنویسید و به لقمه‌هاتون بچسبونید. البته بهتره فایلی که براتون تهیه شده رو پرینت کنید و اون رو بر روی لقمه‌ها بچسبونید.\n',
+                                  'بعد از آماده کردن و بسته‌بندی لقمه‌ها، لینک روایت که پایین براتون نوشته شده رو روی یه کاغذ بنویسید و به لقمه‌هاتون بچسبونید. البته بهتره فایلی که براتون تهیه شده رو پرینت کنید و اون رو بر روی لقمه‌ها بچسبونید.\n',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
@@ -346,7 +346,7 @@ class _ShareWidgetState extends State<ShareWidget> {
                                       return "https://ghadir-api.mardomi.org/api/qr/$uid";
                                     }(FFAppState().profile.uid));
                                   },
-                                  text: 'دریافت',
+                                  text: 'دریافت فایل پرینت لقمه ها',
                                   icon: const Icon(
                                     Icons.qr_code_sharp,
                                     size: 15.0,

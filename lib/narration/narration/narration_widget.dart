@@ -162,6 +162,7 @@ class _NarrationWidgetState extends State<NarrationWidget> {
                                 borderRadius: BorderRadius.circular(16.0),
                                 child: Container(
                                   decoration: BoxDecoration(
+                                    color: const Color(0xFFEEEEEE),
                                     borderRadius: BorderRadius.circular(16.0),
                                     shape: BoxShape.rectangle,
                                   ),

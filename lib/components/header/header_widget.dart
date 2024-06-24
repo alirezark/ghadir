@@ -59,7 +59,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
             Align(
               alignment: const AlignmentDirectional(-1.0, 0.0),
               child: Text(
-                'سامانه غدیر',
+                'لقمه میلیونی',
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                       color: FlutterFlowTheme.of(context).primaryBackground,

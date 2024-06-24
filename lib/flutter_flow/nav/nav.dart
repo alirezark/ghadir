@@ -207,6 +207,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.bool,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'startNarration',
+          path: '/startNarration',
+          requireAuth: true,
+          builder: (context, params) => const StartNarrationWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

@@ -357,100 +357,219 @@ class _DeliveryTypeWidgetState extends State<DeliveryTypeWidget> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              FFAppState().deliveryType = DeliveryType.self;
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 5.0,
+                                    color: Color(0x34111417),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 12.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 12.0, 12.0, 12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'خودم توزیع می کنم',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmallFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmallFamily),
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                          if (FFAppState().deliveryType !=
+                                              DeliveryType.self)
+                                            Icon(
+                                              Icons.radio_button_off,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 24.0,
+                                            ),
+                                          if (FFAppState().deliveryType ==
+                                              DeliveryType.self)
+                                            Icon(
+                                              Icons.radio_button_checked,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 24.0,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 24.0, 0.0),
+                                      child: Text(
+                                        'خودم لقمه ها رو در روز جشن غدیر توزیع می کنم',
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily),
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ].divide(const SizedBox(height: 16.0)),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            _model.apiResult4t0 =
-                                await ProfileGroup.upsertDeliveryTypeCall.call(
-                              deliveryType:
-                                  (FFAppState().deliveryType == null) ||
-                                          (FFAppState().deliveryType ==
-                                              DeliveryType.self)
-                                      ? DeliveryType.self.name
-                                      : FFAppState().deliveryType?.name,
-                              jwt: currentAuthenticationToken,
-                            );
+                  if (FFAppState().deliveryType != null)
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: const BoxDecoration(),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              _model.apiResult4t0 = await ProfileGroup
+                                  .upsertDeliveryTypeCall
+                                  .call(
+                                deliveryType:
+                                    (FFAppState().deliveryType == null) ||
+                                            (FFAppState().deliveryType ==
+                                                DeliveryType.self)
+                                        ? DeliveryType.self.name
+                                        : FFAppState().deliveryType?.name,
+                                jwt: currentAuthenticationToken,
+                              );
 
-                            if ((_model.apiResult4t0?.succeeded ?? true)) {
-                              if ((FFAppState().deliveryType == null) ||
-                                  (FFAppState().deliveryType ==
-                                      DeliveryType.self)) {
-                                context.pushNamed('narration');
+                              if ((_model.apiResult4t0?.succeeded ?? true)) {
+                                if ((FFAppState().deliveryType == null) ||
+                                    (FFAppState().deliveryType ==
+                                        DeliveryType.self)) {
+                                  context.pushNamed('narration');
+                                } else {
+                                  context.pushNamed(
+                                    'deliveryTime',
+                                    queryParameters: {
+                                      'type': serializeParam(
+                                        FFAppState().deliveryType,
+                                        ParamType.Enum,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                }
                               } else {
-                                context.pushNamed(
-                                  'deliveryTime',
-                                  queryParameters: {
-                                    'type': serializeParam(
-                                      FFAppState().deliveryType,
-                                      ParamType.Enum,
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'وقوع خطا',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
                                     ),
-                                  }.withoutNulls,
+                                    duration: const Duration(milliseconds: 3000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).error,
+                                  ),
                                 );
                               }
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'وقوع خطا',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 3000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).error,
-                                ),
-                              );
-                            }
 
-                            setState(() {});
-                          },
-                          text: (FFAppState().deliveryType ==
-                                      DeliveryType.localCenter) ||
-                                  (FFAppState().deliveryType ==
-                                      DeliveryType.walkCenter)
-                              ? 'ثبت و ادامه'
-                              : 'خودم لقمه ها رو پخش می کنم',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleSmallFamily),
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                              setState(() {});
+                            },
+                            text: 'ثبت و ادامه',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleSmallFamily),
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
