@@ -263,6 +263,81 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                       child: TextFormField(
                                         controller: _model.codeTextController,
                                         focusNode: _model.codeFocusNode,
+                                        onFieldSubmitted: (_) async {
+                                          FFAppState().isLoading = true;
+                                          setState(() {});
+                                          _model.loginResultCopy =
+                                              await AuthGroup.loginCall.call(
+                                            password:
+                                                _model.codeTextController.text,
+                                            mobile: widget.phone,
+                                          );
+
+                                          if ((_model
+                                                  .loginResultCopy?.succeeded ??
+                                              true)) {
+                                            GoRouter.of(context)
+                                                .prepareAuthEvent();
+                                            await authManager.signIn(
+                                              authenticationToken:
+                                                  LoginResponseStruct
+                                                          .maybeFromMap((_model
+                                                                  .loginResultCopy
+                                                                  ?.jsonBody ??
+                                                              ''))
+                                                      ?.jwt,
+                                              authUid: LoginResponseStruct
+                                                      .maybeFromMap((_model
+                                                              .loginResultCopy
+                                                              ?.jsonBody ??
+                                                          ''))
+                                                  ?.user
+                                                  .id
+                                                  .toString(),
+                                            );
+
+                                            context.pushNamedAuth(
+                                                'HomePage', context.mounted);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'کد وارد شده صحیح نیست',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
+                                                      ),
+                                                ),
+                                                duration: const Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                              ),
+                                            );
+                                          }
+
+                                          FFAppState().isLoading = false;
+                                          setState(() {});
+
+                                          setState(() {});
+                                        },
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(

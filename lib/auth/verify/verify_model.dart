@@ -15,6 +15,8 @@ class VerifyModel extends FlutterFlowModel<VerifyWidget> {
   TextEditingController? codeTextController;
   final codeMask = MaskTextInputFormatter(mask: '####');
   String? Function(BuildContext, String?)? codeTextControllerValidator;
+  // Stores action output result for [Backend Call - API (login)] action in code widget.
+  ApiCallResponse? loginResultCopy;
   // Stores action output result for [Backend Call - API (login)] action in Button widget.
   ApiCallResponse? loginResult;
   // Stores action output result for [Backend Call - API (otp)] action in Button widget.
