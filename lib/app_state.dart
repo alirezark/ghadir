@@ -266,6 +266,12 @@ class FFAppState extends ChangeNotifier {
   void updateSelectedLocalStruct(Function(LocalStruct) updateFn) {
     updateFn(_selectedLocal);
   }
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  set isLoading(bool value) {
+    _isLoading = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
