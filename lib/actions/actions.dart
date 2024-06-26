@@ -5,7 +5,5 @@ Future handleUserState(BuildContext context) async {
   if ((FFAppState().profile == null) ||
       (FFAppState().profile.firstName == '')) {
     context.pushNamed('register');
-  } else if (FFAppState().profile.address == '') {
-  context.pushNamed('startNarration');
-}
+  } else if (FFAppState().profile.address == '') {}
 }
