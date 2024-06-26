@@ -56,7 +56,7 @@ class ProfileStruct extends BaseStruct {
   set participantType(ParticipantStruct? val) => _participantType = val;
 
   void updateParticipantType(Function(ParticipantStruct) updateFn) {
-    updateFn(participantType ??= ParticipantStruct());
+    updateFn(_participantType ??= ParticipantStruct());
   }
 
   bool hasParticipantType() => _participantType != null;
@@ -74,7 +74,7 @@ class ProfileStruct extends BaseStruct {
   set userBites(List<UserBiteStruct>? val) => _userBites = val;
 
   void updateUserBites(Function(List<UserBiteStruct>) updateFn) {
-    updateFn(userBites ??= []);
+    updateFn(_userBites ??= []);
   }
 
   bool hasUserBites() => _userBites != null;
@@ -85,7 +85,7 @@ class ProfileStruct extends BaseStruct {
   set teammates(List<TeammateStruct>? val) => _teammates = val;
 
   void updateTeammates(Function(List<TeammateStruct>) updateFn) {
-    updateFn(teammates ??= []);
+    updateFn(_teammates ??= []);
   }
 
   bool hasTeammates() => _teammates != null;
@@ -121,7 +121,7 @@ class ProfileStruct extends BaseStruct {
   set province(ProvinceStruct? val) => _province = val;
 
   void updateProvince(Function(ProvinceStruct) updateFn) {
-    updateFn(province ??= ProvinceStruct());
+    updateFn(_province ??= ProvinceStruct());
   }
 
   bool hasProvince() => _province != null;

@@ -469,9 +469,39 @@ class _VerifyWidgetState extends State<VerifyWidget> {
                                                 .id
                                                 .toString(),
                                       );
+                                      _model.profileGet =
+                                          await ProfileGroup.getCall.call(
+                                        jwt: LoginResponseStruct.maybeFromMap(
+                                                (_model.loginResult?.jsonBody ??
+                                                    ''))
+                                            ?.jwt,
+                                      );
 
-                                      context.pushNamedAuth(
-                                          'HomePage', context.mounted);
+                                      if ((_model.profileGet?.succeeded ??
+                                          true)) {
+                                        if (ProfileStruct.maybeFromMap((_model
+                                                            .profileGet
+                                                            ?.jsonBody ??
+                                                        ''))
+                                                    ?.lastName !=
+                                                null &&
+                                            ProfileStruct.maybeFromMap((_model
+                                                            .profileGet
+                                                            ?.jsonBody ??
+                                                        ''))
+                                                    ?.lastName !=
+                                                '') {
+                                          context.pushNamedAuth(
+                                              'startNarration',
+                                              context.mounted);
+                                        } else {
+                                          context.pushNamedAuth(
+                                              'HomePage', context.mounted);
+                                        }
+                                      } else {
+                                        context.pushNamedAuth(
+                                            'HomePage', context.mounted);
+                                      }
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(

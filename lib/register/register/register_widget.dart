@@ -410,307 +410,314 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                             ),
                                           ),
                                         ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 16.0, 0.0, 16.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Stack(
-                                                    children: [
-                                                      FutureBuilder<
-                                                          ApiCallResponse>(
-                                                        future: BiteGroup
-                                                            .listCall
-                                                            .call(
-                                                          jwt:
-                                                              currentAuthenticationToken,
-                                                        ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
-                                                                child:
-                                                                    CircularProgressIndicator(
-                                                                  valueColor:
-                                                                      AlwaysStoppedAnimation<
-                                                                          Color>(
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
+                                        if (false)
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 16.0, 0.0, 16.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Stack(
+                                                      children: [
+                                                        FutureBuilder<
+                                                            ApiCallResponse>(
+                                                          future: BiteGroup
+                                                              .listCall
+                                                              .call(
+                                                            jwt:
+                                                                currentAuthenticationToken,
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            );
-                                                          }
-                                                          final listViewListResponse =
-                                                              snapshot.data!;
-                                                          return Builder(
-                                                            builder: (context) {
-                                                              final biteList =
-                                                                  FFAppState()
-                                                                      .profile
-                                                                      .userBites
-                                                                      .toList();
-                                                              return ListView
-                                                                  .builder(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                shrinkWrap:
-                                                                    true,
-                                                                scrollDirection:
-                                                                    Axis.vertical,
-                                                                itemCount:
-                                                                    biteList
-                                                                        .length,
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        biteListIndex) {
-                                                                  final biteListItem =
-                                                                      biteList[
-                                                                          biteListIndex];
-                                                                  return Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
-                                                                            0.0,
-                                                                            16.0,
-                                                                            8.0),
-                                                                    child:
-                                                                        Container(
-                                                                      width:
-                                                                          100.0,
-                                                                      height:
-                                                                          70.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                        border:
-                                                                            Border.all(
-                                                                          color:
-                                                                              const Color(0xFFE0E3E7),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                      ),
+                                                              );
+                                                            }
+                                                            final listViewListResponse =
+                                                                snapshot.data!;
+                                                            return Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                final biteList =
+                                                                    FFAppState()
+                                                                        .profile
+                                                                        .userBites
+                                                                        .toList();
+                                                                return ListView
+                                                                    .builder(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  shrinkWrap:
+                                                                      true,
+                                                                  scrollDirection:
+                                                                      Axis.vertical,
+                                                                  itemCount:
+                                                                      biteList
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          biteListIndex) {
+                                                                    final biteListItem =
+                                                                        biteList[
+                                                                            biteListIndex];
+                                                                    return Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          8.0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
+                                                                          Container(
+                                                                        width:
+                                                                            100.0,
+                                                                        height:
+                                                                            70.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                const Color(0xFFE0E3E7),
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                        ),
                                                                         child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children:
-                                                                              [
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                              child: Card(
-                                                                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                elevation: 0.0,
-                                                                                shape: RoundedRectangleBorder(
-                                                                                  borderRadius: BorderRadius.circular(50.0),
-                                                                                ),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsets.all(2.0),
-                                                                                  child: ClipRRect(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children:
+                                                                                [
+                                                                              Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                child: Card(
+                                                                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                  elevation: 0.0,
+                                                                                  shape: RoundedRectangleBorder(
                                                                                     borderRadius: BorderRadius.circular(50.0),
-                                                                                    child: SvgPicture.asset(
-                                                                                      'assets/images/fluent-emoji-high-contrast--sandwich.svg',
-                                                                                      width: 44.0,
-                                                                                      height: 44.0,
-                                                                                      fit: BoxFit.cover,
+                                                                                  ),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsets.all(2.0),
+                                                                                    child: ClipRRect(
+                                                                                      borderRadius: BorderRadius.circular(50.0),
+                                                                                      child: SvgPicture.asset(
+                                                                                        'assets/images/fluent-emoji-high-contrast--sandwich.svg',
+                                                                                        width: 44.0,
+                                                                                        height: 44.0,
+                                                                                        fit: BoxFit.cover,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            ),
-                                                                            Expanded(
-                                                                              child: Align(
-                                                                                alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Text(
-                                                                                          biteListItem.id == 2 ? biteListItem.customBiteName : BiteResponseStruct.maybeFromMap(listViewListResponse.jsonBody)!.data.where((e) => e.id == biteListItem.id).toList().first.title,
-                                                                                          style: FlutterFlowTheme.of(context).bodyLarge.override(
-                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                                                letterSpacing: 0.0,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          biteListItem.count,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                letterSpacing: 0.0,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ].divide(const SizedBox(height: 8.0)),
-                                                                                    ),
-                                                                                    FlutterFlowIconButton(
-                                                                                      borderColor: Colors.transparent,
-                                                                                      borderRadius: 32.0,
-                                                                                      borderWidth: 1.0,
-                                                                                      buttonSize: 32.0,
-                                                                                      icon: Icon(
-                                                                                        Icons.close_rounded,
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        size: 16.0,
+                                                                              Expanded(
+                                                                                child: Align(
+                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                    children: [
+                                                                                      Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Text(
+                                                                                            biteListItem.id == 2 ? biteListItem.customBiteName : BiteResponseStruct.maybeFromMap(listViewListResponse.jsonBody)!.data.where((e) => e.id == biteListItem.id).toList().first.title,
+                                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                                                ),
+                                                                                          ),
+                                                                                          Text(
+                                                                                            biteListItem.count,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                ),
+                                                                                          ),
+                                                                                        ].divide(const SizedBox(height: 8.0)),
                                                                                       ),
-                                                                                      onPressed: () async {
-                                                                                        FFAppState().updateProfileStruct(
-                                                                                          (e) => e
-                                                                                            ..updateUserBites(
-                                                                                              (e) => e.removeAt(biteListIndex),
-                                                                                            ),
-                                                                                        );
-                                                                                        setState(() {});
-                                                                                      },
-                                                                                    ),
-                                                                                  ],
+                                                                                      FlutterFlowIconButton(
+                                                                                        borderColor: Colors.transparent,
+                                                                                        borderRadius: 32.0,
+                                                                                        borderWidth: 1.0,
+                                                                                        buttonSize: 32.0,
+                                                                                        icon: Icon(
+                                                                                          Icons.close_rounded,
+                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          size: 16.0,
+                                                                                        ),
+                                                                                        onPressed: () async {
+                                                                                          FFAppState().updateProfileStruct(
+                                                                                            (e) => e
+                                                                                              ..updateUserBites(
+                                                                                                (e) => e.removeAt(biteListIndex),
+                                                                                              ),
+                                                                                          );
+                                                                                          setState(() {});
+                                                                                        },
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
                                                                                 ),
                                                                               ),
-                                                                            ),
-                                                                          ].divide(const SizedBox(width: 8.0)),
+                                                                            ].divide(const SizedBox(width: 8.0)),
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  FFButtonWidget(
-                                                    onPressed: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child: SizedBox(
-                                                                height: 500.0,
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
                                                                 child:
-                                                                    AddBiteSheetWidget(
-                                                                  afterSubmit: (bite,
-                                                                      biteName,
-                                                                      biteCount) async {},
+                                                                    SizedBox(
+                                                                  height: 500.0,
+                                                                  child:
+                                                                      AddBiteSheetWidget(
+                                                                    afterSubmit: (bite,
+                                                                        biteName,
+                                                                        biteCount) async {},
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
-                                                    text: 'افزودن لقمه',
-                                                    icon: const Icon(
-                                                      Icons.add,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleSmallFamily),
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      text: 'افزودن لقمه',
+                                                      icon: const Icon(
+                                                        Icons.add,
+                                                        size: 15.0,
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily),
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: const BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      showLoadingIndicator:
+                                                          false,
                                                     ),
-                                                    showLoadingIndicator: false,
-                                                  ),
-                                                ].divide(const SizedBox(height: 8.0)),
+                                                  ].divide(
+                                                      const SizedBox(height: 8.0)),
+                                                ),
                                               ),
-                                            ),
-                                          ].divide(const SizedBox(height: 8.0)),
-                                        ),
+                                            ].divide(const SizedBox(height: 8.0)),
+                                          ),
                                       ].divide(const SizedBox(height: 16.0)),
                                     ),
                                   ),
@@ -722,62 +729,61 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                     ),
                   ),
-                  if (FFAppState().profile.userBites.isNotEmpty)
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-                      child: Container(
-                        decoration: const BoxDecoration(),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            _model.apiResultx0c =
-                                await ProfileGroup.upsertCall.call(
-                              firstName: _model.firstNameTextController.text,
-                              lastName: _model.lastNameTextController.text,
-                              jwt: currentAuthenticationToken,
-                              userBitesJson: FFAppState()
-                                  .profile
-                                  .userBites
-                                  .map((e) => e.toMap())
-                                  .toList(),
-                            );
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.apiResultx0c =
+                              await ProfileGroup.upsertCall.call(
+                            firstName: _model.firstNameTextController.text,
+                            lastName: _model.lastNameTextController.text,
+                            jwt: currentAuthenticationToken,
+                            userBitesJson: FFAppState()
+                                .profile
+                                .userBites
+                                .map((e) => e.toMap())
+                                .toList(),
+                          );
 
-                            if ((_model.apiResultx0c?.succeeded ?? true)) {
-                              context.pushNamed('teamates');
-                            }
+                          if ((_model.apiResultx0c?.succeeded ?? true)) {
+                            context.pushNamed('startNarration');
+                          }
 
-                            setState(() {});
-                          },
-                          text: 'مرحله بعد',
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleSmallFamily),
-                                ),
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                          setState(() {});
+                        },
+                        text: 'مرحله بعد',
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleSmallFamily),
+                              ),
+                          elevation: 3.0,
+                          borderSide: const BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),
+                  ),
                 ].divide(const SizedBox(height: 16.0)),
               ),
             ),

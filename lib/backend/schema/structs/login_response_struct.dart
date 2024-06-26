@@ -24,7 +24,7 @@ class LoginResponseStruct extends BaseStruct {
   set user(UserStruct? val) => _user = val;
 
   void updateUser(Function(UserStruct) updateFn) {
-    updateFn(user ??= UserStruct());
+    updateFn(_user ??= UserStruct());
   }
 
   bool hasUser() => _user != null;

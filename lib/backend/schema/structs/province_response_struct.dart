@@ -15,7 +15,7 @@ class ProvinceResponseStruct extends BaseStruct {
   set data(List<ProvinceStruct>? val) => _data = val;
 
   void updateData(Function(List<ProvinceStruct>) updateFn) {
-    updateFn(data ??= []);
+    updateFn(_data ??= []);
   }
 
   bool hasData() => _data != null;

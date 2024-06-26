@@ -6,6 +6,6 @@ Future handleUserState(BuildContext context) async {
       (FFAppState().profile.firstName == '')) {
     context.pushNamed('register');
   } else if (FFAppState().profile.address == '') {
-  context.pushNamed('addressForm');
+  context.pushNamed('startNarration');
 }
 }

@@ -15,7 +15,7 @@ class BiteResponseStruct extends BaseStruct {
   set data(List<BiteStruct>? val) => _data = val;
 
   void updateData(Function(List<BiteStruct>) updateFn) {
-    updateFn(data ??= []);
+    updateFn(_data ??= []);
   }
 
   bool hasData() => _data != null;

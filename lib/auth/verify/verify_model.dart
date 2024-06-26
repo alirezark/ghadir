@@ -19,6 +19,8 @@ class VerifyModel extends FlutterFlowModel<VerifyWidget> {
   ApiCallResponse? loginResultCopy;
   // Stores action output result for [Backend Call - API (login)] action in Button widget.
   ApiCallResponse? loginResult;
+  // Stores action output result for [Backend Call - API (get)] action in Button widget.
+  ApiCallResponse? profileGet;
   // Stores action output result for [Backend Call - API (otp)] action in Button widget.
   ApiCallResponse? otpResult;
   InstantTimer? pinCodeCountDown2;
